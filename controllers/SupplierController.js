@@ -129,7 +129,33 @@ $("#btnResetSupplier").click(function () {
     $("#supplierAddress").val("");
     $("#supplierEmail").val("");
 })
-
+/**
+ * Supplier delete
+ * */
+$("#btnDeleteSupplier").click(function () {
+    $.ajax({
+        method:"DELETE",
+        contentType:"application/json",
+        url:"http://localhost:8080/shoe/api/v1/supplier/"+supplierId01,
+        async:true,
+        success: function (data) {
+            Swal.fire(
+                'Success!',
+                'Supplier has been saved successfully!',
+                'success'
+            );
+            loadSupplierData()
+            $("#btnResetSupplier").click();
+        },
+        error: function (xhr, exception) {
+            Swal.fire(
+                'Error!',
+                'Supplier has been saved unsuccessfully!',
+                'error'
+            );
+        }
+    })
+});
 /**
  * Table Click Action
  * */
