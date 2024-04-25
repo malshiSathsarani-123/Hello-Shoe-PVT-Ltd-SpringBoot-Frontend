@@ -1,4 +1,40 @@
+document.addEventListener('DOMContentLoaded', function () {
+    loadCustomerData();
+});
+/**
+ * Load Customer Data
+ * */
+const loadCustomerData = () => {
+    var tableBody = $('#customerTable');
+    $.ajax({
+        method: 'GET',
+        url: "http://localhost:8080/shoe/api/v1/customer",
+        async:true,
+        success: function (item) {
+            tableBody.empty();
 
+            item.forEach(function (item) {
+                var row = $('<tr>');
+
+                row.append($('<td>').text(item.code));
+                row.append($('<td>').text(item.name));
+                row.append($('<td>').text(item.gender));
+                row.append($('<td>').text(item.joinDate));
+                row.append($('<td>').text(item.level));
+                row.append($('<td>').text(item.totalPoints));
+                row.append($('<td>').text(item.dob));
+                row.append($('<td>').text(item.address));
+                row.append($('<td>').text(item.contact));
+                row.append($('<td>').text(item.email));
+
+                tableBody.append(row);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Failed to fetch item data. Status code:");
+        }
+    });
+};
 /**
  * Customer Save
  * */
