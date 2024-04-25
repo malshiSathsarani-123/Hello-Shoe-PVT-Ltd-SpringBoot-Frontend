@@ -84,7 +84,7 @@ $("#btnSaveCustomer").click(function () {
     })
 });
 /**
- * Customer Updare
+ * Customer Update
  * */
 $("#btnUpdateCustomer").click(function () {
     let name = $("#txtCusName").val();
