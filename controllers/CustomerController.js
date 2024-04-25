@@ -1,3 +1,5 @@
+var customerId01 = null;
+
 document.addEventListener('DOMContentLoaded', function () {
     loadCustomerData();
 });
@@ -26,6 +28,7 @@ const loadCustomerData = () => {
                 row.append($('<td>').text(item.address));
                 row.append($('<td>').text(item.contact));
                 row.append($('<td>').text(item.email));
+                row.append($('<td>').text(item.recentPurchaseDateAndTime));
 
                 tableBody.append(row);
             });
@@ -81,6 +84,50 @@ $("#btnSaveCustomer").click(function () {
     })
 });
 
+$("#btnUpdateCustomer").click(function () {
+    let name = $("#txtCusName").val();
+    let gender = getSelectedRadioButtonValue();
+    let joinDate = $("#JoinDate").val();
+    let dob = $("#dob").val();
+    let level = $("#level").val();
+    let contact = $("#contact").val();
+    let address = $("#address").val();
+    let email = $("#email").val();
+    $.ajax({
+        method:"PUT",
+        contentType:"application/json",
+        url:"http://localhost:8080/shoe/api/v1/customer",
+        async:true,
+        data:JSON.stringify({
+            code:customerId01,
+            name:name,
+            gender:gender,
+            joinDate:joinDate,
+            level:level,
+            dob:dob,
+            address:address,
+            contact:contact,
+            email:email
+        }),
+        success: function (data) {
+            Swal.fire(
+                'Success!',
+                'Item has been saved successfully!',
+                'success'
+            );
+            loadCustomerData();
+            $("#btnResetCustomer").click();
+        },
+        error: function (xhr, exception) {
+            Swal.fire(
+                'Error!',
+                'Item has been saved unsuccessfully!',
+                'error'
+            );
+        }
+    })
+});
+
 function getSelectedRadioButtonValue() {
     var radioButtons = document.getElementsByName('flexRadioDefault');
 
@@ -91,16 +138,15 @@ function getSelectedRadioButtonValue() {
         }
     }
 }
-
-
-
-
 /**
  * clear input fields Values Method
  * */
 $("#btnResetCustomer").click(function () {
     $("#txtCusName").val("");
-    getSelectedRadioButtonValue();
+    var radioButtons = document.querySelectorAll('input[name="flexRadioDefault"]');
+    radioButtons.forEach(function(radioButton) {
+        radioButton.checked = false;
+    });
     $("#JoinDate").val("");
     $("#dob").val("");
     $("#level").val("level");
@@ -108,3 +154,40 @@ $("#btnResetCustomer").click(function () {
     $("#address").val("");
     $("#email").val("");
 })
+
+/**
+ * Table Click Action
+ * */
+$(document).ready(function () {
+    $("#customerTable").on("click", "tr", function () {
+        var code = $(this).find("td:eq(0)").text();
+        var name = $(this).find("td:eq(1)").text();
+        var gender = $(this).find("td:eq(2)").text();
+        var joinDate = $(this).find("td:eq(3)").text();
+        var level = $(this).find("td:eq(4)").text();
+        var totalPoint = $(this).find("td:eq(5)").text();
+        var dob = $(this).find("td:eq(6)").text();
+        var address = $(this).find("td:eq(7)").text();
+        var contact = $(this).find("td:eq(8)").text();
+        var email = $(this).find("td:eq(9)").text();
+        var rpd = $(this).find("td:eq(10)").text();
+
+        customerId01 = code;
+        $("#txtCusName").val(name);
+
+
+        var radioMale = document.getElementById("flexRadioDefault1");
+        var radioFemale = document.getElementById("flexRadioDefault2");
+        if (gender === "MALE"){
+            radioMale.click();
+        }else {
+            radioFemale.click();
+        }
+        $("#JoinDate").val(joinDate);
+        $("#level").val(level);
+        $("#dob").val(dob);
+        $("#contact").val(contact);
+        $("#address").val(address);
+        $("#email").val(email);
+    });
+});
