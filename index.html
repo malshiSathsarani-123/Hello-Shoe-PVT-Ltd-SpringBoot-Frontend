@@ -151,7 +151,7 @@
             <a class="navbar-brand text-dark fw-bold " href="#">
                 <img alt="Logo" class="d-inline-block align-text-center" height="44" src="assets/images/logo.png"
                      width="50">
-                <span class="text-success"> Nimesh </span> POS System
+                <span class="text-success"> HELLO </span> SHOE System
             </a>
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler" data-bs-target="#navbarSupportedContent"
@@ -165,6 +165,9 @@
                     </li>
                     <li class="nav-item" id="customerBtn">
                         <a class="nav-link" href="#">Customer </a>
+                    </li>
+                    <li class="nav-item" id="supplierBtn">
+                        <a class="nav-link" href="#">Supplier</a>
                     </li>
                     <li class="nav-item" id="itemBtn">
                         <a class="nav-link" href="#">Items</a>
@@ -623,6 +626,128 @@
 </main>
 <!-- Customer End-->
 
+<!-- Supplier Start-->
+<main class="container-fluid" id="supplierSection">
+    <!-- Supplier Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-4" style="font-family: 'Arial Rounded MT Bold',serif"><i class="bi bi-people"></i> Supplier
+            </h2>
+        </div>
+    </div>
+    <!-- Supplier Header End -->
+
+    <!-- Supplier Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H7">Home > Supplier</h6>
+            <hr>
+        </div>
+        <!-- Supplier Header Section End -->
+
+        <!-- Supplier Details Section Start -->
+        <div class="row justify-content-around " style="height: max-content">
+
+            <!-- Supplier Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">
+
+                <form action="supplier" id="supplierForm">
+
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="txtCusName">Supplier Name :</label>
+                            <input class="form-control" id="txtSupName" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="level">Level :</label>
+                            <select aria-label="Default select example" class="form-select border-dark" id="category">
+                                <option value="GOLD">INTERNATIONAL</option>
+                                <option value="SILVER">LOCAL</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 ms-3 me-3 mt-3 ">
+                        <label class="fw-bold" for="address">Address :</label>
+                        <input class="form-control" id="supplierAddress" type="text">
+                        <span class="control-error"></span>
+                    </div>
+
+                    <div class="mb-3 ms-3 me-3 mt-3 ">
+                        <label class="fw-bold" for="email">Email :</label>
+                        <input class="form-control" id="supplierEmail" type="text">
+                        <span class="control-error"></span>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="contact">Contact :</label>
+                            <input class="form-control" id="supplierContact1" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="contact">Contact :</label>
+                            <input class="form-control" id="supplierContact2" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-10 col-md-5 col-lg-5 p-0 mt-5 rounded-3 sectionBorder"
+                 style="background-color: white;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Supplier</h4>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="searchCusId">Search Supplier :</label>
+                    <input class="form-control me-2 mt-2" id="searchSupplierId" placeholder="Input Name/NIC/Tp Here"
+                           type="search">
+                </div>
+                <div class="m-4">
+                    <button class="btn btn-success mt-2 m-2" id="btnSaveSupplier" type="button">+ New Supplier
+                    </button>
+
+                    <button class="btn btn-info mt-2 m-2" id="btnUpdateSupplier" type="button">Update Supplier
+                    </button>
+
+                    <button class="btn btn-danger mt-2 m-2" id="btnDeleteSupplier" type="button">Delete Supplier
+                    </button>
+
+                    <button class="btn btn-warning mt-2 m-2" id="btnResetSupplier" type="reset">Clear
+                    </button>
+
+                </div>
+            </div>
+            <!-- Supplier Details Search Section End -->
+        </div>
+        <!-- Supplier Details Section End -->
+
+        <!-- View Supplier Details Table Start -->
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Address</th>
+                            <th>Contact1</th>
+                            <th>Contact2</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody id="supplierTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Supplier Details Table End -->
+    </div>
+</main>
+<!-- Supplier End-->
+
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -647,6 +772,7 @@
     $('#navigation-section').css('display', 'none');
     $('#homeSection').css('display', 'none');
     $('#customerSection').css('display', 'none');
+    $('#supplierSection').css('display', 'none');
 
     $('#signingBtn').on('click', () => {
         $('#signing-section').css('display', 'none');
@@ -654,6 +780,7 @@
         $('#navigation-section').css('display', 'block');
         $('#homeSection').css('display', 'block');
         $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
     })
 
     $('#signupBtn').on('click', () => {
@@ -662,6 +789,16 @@
         $('#navigation-section').css('display', 'none');
         $('#homeSection').css('display', 'none');
         $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+    })
+
+    $('#homeBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'block');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
     })
 
     $('#customerBtn').on('click', () => {
@@ -670,8 +807,17 @@
         $('#navigation-section').css('display', 'block');
         $('#homeSection').css('display', 'none');
         $('#customerSection').css('display', 'block');
+        $('#supplierSection').css('display', 'none');
     })
 
+    $('#supplierBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'block');
+    })
 
 </script>
 
