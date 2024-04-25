@@ -83,7 +83,9 @@ $("#btnSaveCustomer").click(function () {
         }
     })
 });
-
+/**
+ * Customer Updare
+ * */
 $("#btnUpdateCustomer").click(function () {
     let name = $("#txtCusName").val();
     let gender = getSelectedRadioButtonValue();
@@ -109,6 +111,34 @@ $("#btnUpdateCustomer").click(function () {
             contact:contact,
             email:email
         }),
+        success: function (data) {
+            Swal.fire(
+                'Success!',
+                'Item has been saved successfully!',
+                'success'
+            );
+            loadCustomerData();
+            $("#btnResetCustomer").click();
+        },
+        error: function (xhr, exception) {
+            Swal.fire(
+                'Error!',
+                'Item has been saved unsuccessfully!',
+                'error'
+            );
+        }
+    })
+});
+
+/**
+ * Customer delete
+ * */
+$("#btnDeleteCustomer").click(function () {
+    $.ajax({
+        method:"DELETE",
+        contentType:"application/json",
+        url:"http://localhost:8080/shoe/api/v1/customer/"+customerId01,
+        async:true,
         success: function (data) {
             Swal.fire(
                 'Success!',
