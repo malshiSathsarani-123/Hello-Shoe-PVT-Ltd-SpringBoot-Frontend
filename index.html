@@ -166,6 +166,9 @@
                     <li class="nav-item" id="customerBtn">
                         <a class="nav-link" href="#">Customer </a>
                     </li>
+                    <li class="nav-item" id="employeeBtn">
+                        <a class="nav-link" href="#">Employee </a>
+                    </li>
                     <li class="nav-item" id="supplierBtn">
                         <a class="nav-link" href="#">Supplier</a>
                     </li>
@@ -498,7 +501,6 @@
 
             <!-- Customer Details Search Section Start -->
             <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">
-                <!--            <div class="col-10 col-md-5 col-lg-5 p-0 mt-2 rounded-3 sectionBorder" style="background-color: white">-->
 
                 <form action="customer" id="customerForm">
 
@@ -655,12 +657,12 @@
 
                     <div class="row mt-1">
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
-                            <label class="fw-bold" for="txtCusName">Supplier Name :</label>
+                            <label class="fw-bold" for="txtSupName">Supplier Name :</label>
                             <input class="form-control" id="txtSupName" type="text">
                             <span class="control-error"></span>
                         </div>
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
-                            <label class="fw-bold" for="level">Level :</label>
+                            <label class="fw-bold" for="category">Level :</label>
                             <select aria-label="Default select example" class="form-select border-dark" id="category">
                                 <option value="INTERNATIONAL">INTERNATIONAL</option>
                                 <option value="LOCAL">LOCAL</option>
@@ -669,25 +671,25 @@
                     </div>
 
                     <div class="mb-3 ms-3 me-3 mt-3 ">
-                        <label class="fw-bold" for="address">Address :</label>
+                        <label class="fw-bold" for="supplierAddress">Address :</label>
                         <input class="form-control" id="supplierAddress" type="text">
                         <span class="control-error"></span>
                     </div>
 
                     <div class="mb-3 ms-3 me-3 mt-3 ">
-                        <label class="fw-bold" for="email">Email :</label>
+                        <label class="fw-bold" for="supplierEmail">Email :</label>
                         <input class="form-control" id="supplierEmail" type="text">
                         <span class="control-error"></span>
                     </div>
 
                     <div class="row mt-1">
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
-                            <label class="fw-bold" for="contact">Contact :</label>
+                            <label class="fw-bold" for="supplierContact1">Contact :</label>
                             <input class="form-control" id="supplierContact1" type="text">
                             <span class="control-error"></span>
                         </div>
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
-                            <label class="fw-bold" for="contact">Contact :</label>
+                            <label class="fw-bold" for="supplierContact2">Contact :</label>
                             <input class="form-control" id="supplierContact2" type="text">
                             <span class="control-error"></span>
                         </div>
@@ -699,7 +701,7 @@
                 <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Supplier</h4>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="searchCusId">Search Supplier :</label>
+                    <label class="fw-bold" for="searchSupplierId">Search Supplier :</label>
                     <input class="form-control me-2 mt-2" id="searchSupplierId" placeholder="Input Name/NIC/Tp Here"
                            type="search">
                 </div>
@@ -748,6 +750,201 @@
 </main>
 <!-- Supplier End-->
 
+<!-- Employee Start-->
+<main class="container-fluid" id="employeeSection">
+    <!-- Employee Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-5" style="font-family: 'Arial Rounded MT Bold',serif"><i class="bi bi-people"></i> Employee
+            </h2>
+        </div>
+    </div>
+    <!-- Employee Header End -->
+
+    <!-- Employee Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H8">Home > Employee</h6>
+            <hr>
+        </div>
+        <!-- Employee Header Section End -->
+
+        <!-- Employee Details Section Start -->
+        <div class="row justify-content-around " style="height: max-content">
+
+            <!-- Employee Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">
+
+                <form action="employee" id="employeeForm">
+
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeName">Employee Name :</label>
+                            <input class="form-control" id="employeeName" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeProfilePic">Profile Pic :</label>
+                            <input class="form-control" id="employeeProfilePic" type="file">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-1 me-3 mt-3 col-10 col-md-5 col-lg-2 ">
+                            <label class="fw-bold" for="employeeStatus">Gender:</label>
+                        </div>
+                        <div class="mb-3 ms-1 me-2 mt-3 col-10 col-md-5 col-lg-3 ">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefaultEmployee" id="flexRadioDefault3">
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    MALE
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefaultEmployee" id="flexRadioDefault4">
+                                <label class="form-check-label" for="flexRadioDefault4">
+                                    FEMALE
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeStatus">Status :</label>
+                            <select aria-label="Default select example" class="form-select border-dark" id="employeeStatus">
+                                <option value="SINGLE">SINGLE</option>
+                                <option value="MARRIED">MARRIED</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="designation">Designation :</label>
+                            <input class="form-control" id="designation" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeRole">Role :</label>
+                            <select aria-label="Default select example" class="form-select border-dark" id="employeeRole">
+                                <option value="ADMIN">ADMIN</option>
+                                <option value="USER">USER</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeDob">DOB :</label>
+                            <input class="form-control" id="employeeDob" type="date">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeDateOfJoin">Date Of Join :</label>
+                            <input class="form-control" id="employeeDateOfJoin" type="date">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="branchName">Branch Name :</label>
+                            <input class="form-control" id="branchName" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeAddress">Address :</label>
+                            <input class="form-control" id="employeeAddress" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeContact">Contact :</label>
+                            <input class="form-control" id="employeeContact" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="employeeEmail">Email :</label>
+                            <input class="form-control" id="employeeEmail" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="guardianName">Guardian Name :</label>
+                            <input class="form-control" id="guardianName" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="emergencyContact">Emergency Contact :</label>
+                            <input class="form-control" id="emergencyContact" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-10 col-md-5 col-lg-5 p-0 mt-5 rounded-3 sectionBorder"
+                 style="background-color: white;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Employee</h4>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="searchEmployeeId">Search Employee :</label>
+                    <input class="form-control me-2 mt-2" id="searchEmployeeId" placeholder="Input Name/NIC/Tp Here"
+                           type="search">
+                </div>
+                <div class="m-4">
+                    <button class="btn btn-success mt-2 m-2" id="btnSaveEmployee" type="button">+ New Employee
+                    </button>
+
+                    <button class="btn btn-info mt-2 m-2" id="btnUpdateEmployee" type="button">Update Employee
+                    </button>
+
+                    <button class="btn btn-danger mt-2 m-2" id="btnDeleteEmployee" type="button">Delete Employee
+                    </button>
+
+                    <button class="btn btn-warning mt-2 m-2" id="btnResetEmployee" type="reset">Clear
+                    </button>
+
+                </div>
+            </div>
+            <!-- Employee Details Search Section End -->
+        </div>
+        <!-- Employee Details Section End -->
+
+        <!-- View Employee Details Table Start -->
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Pic</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                            <th>des</th>
+                            <th>Role</th>
+                            <th>Dob</th>
+                            <th>Join Date</th>
+                            <th>Branch</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Guardian Name</th>
+                            <th>Guardian Contact</th>
+                        </tr>
+                        </thead>
+                        <tbody id="employeeTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Employee Details Table End -->
+    </div>
+</main>
+<!-- Employee End-->
+
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -774,6 +971,7 @@
     $('#homeSection').css('display', 'none');
     $('#customerSection').css('display', 'none');
     $('#supplierSection').css('display', 'none');
+    $('#employeeSection').css('display', 'none');
 
     $('#signingBtn').on('click', () => {
         $('#signing-section').css('display', 'none');
@@ -782,6 +980,7 @@
         $('#homeSection').css('display', 'block');
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
     })
 
     $('#signupBtn').on('click', () => {
@@ -791,6 +990,7 @@
         $('#homeSection').css('display', 'none');
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
     })
 
     $('#homeBtn').on('click', () => {
@@ -800,6 +1000,7 @@
         $('#homeSection').css('display', 'block');
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
     })
 
     $('#customerBtn').on('click', () => {
@@ -809,6 +1010,7 @@
         $('#homeSection').css('display', 'none');
         $('#customerSection').css('display', 'block');
         $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
     })
 
     $('#supplierBtn').on('click', () => {
@@ -818,6 +1020,17 @@
         $('#homeSection').css('display', 'none');
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'block');
+        $('#employeeSection').css('display', 'none');
+    })
+
+    $('#employeeBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'block');
     })
 
 </script>
