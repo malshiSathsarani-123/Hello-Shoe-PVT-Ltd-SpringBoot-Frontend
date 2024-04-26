@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
     loadCustomerData();
 });
 /**
+ * Search customer Data
+ * */
+$('#searchCusId').on("keyup", function () {
+    let value = $(this).val().toLowerCase();
+    $("tbody tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
+/**
  * Load Customer Data
  * */
 const loadCustomerData = () => {

@@ -786,6 +786,7 @@
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
                             <label class="fw-bold" for="employeeProfilePic">Profile Pic :</label>
                             <input class="form-control" id="employeeProfilePic" type="file">
+                            <img id="previewImage" src="#" alt="Preview Image" style="display: none;">
                             <span class="control-error"></span>
                         </div>
                     </div>
@@ -796,13 +797,13 @@
                         </div>
                         <div class="mb-3 ms-1 me-2 mt-3 col-10 col-md-5 col-lg-3 ">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefaultEmployee" id="flexRadioDefault3">
+                                <input value="MALE" class="form-check-input" type="radio" name="flexRadioDefaultEmployee" id="flexRadioDefault3">
                                 <label class="form-check-label" for="flexRadioDefault3">
                                     MALE
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefaultEmployee" id="flexRadioDefault4">
+                                <input value="FEMALE" class="form-check-input" type="radio" name="flexRadioDefaultEmployee" id="flexRadioDefault4">
                                 <label class="form-check-label" for="flexRadioDefault4">
                                     FEMALE
                                 </label>
@@ -962,6 +963,7 @@
 
 <script src="controllers/CustomerController.js"></script>
 <script src="controllers/SupplierController.js"></script>
+<script src="controllers/EmployeeController.js"></script>
 
 <script>
 
