@@ -1,8 +1,9 @@
-/**
- * @author : Nimesh Piyumantha
- * @since : 0.1.0
- **/
-
+#previewImage{
+    border-radius: 100%;
+    width: 20vw;
+    aspect-ratio: 1/1;
+    border: solid 5px #0a53be;
+}
 .card-header{
     color: white !important;
 }

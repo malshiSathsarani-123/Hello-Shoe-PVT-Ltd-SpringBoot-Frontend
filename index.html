@@ -786,9 +786,9 @@
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
                             <label class="fw-bold" for="employeeProfilePic">Profile Pic :</label>
                             <input class="form-control" id="employeeProfilePic" type="file">
-                            <img id="previewImage" src="#" alt="Preview Image" style="display: none;">
                             <span class="control-error"></span>
                         </div>
+                        <textarea id="base64-output" placeholder="Encoded base64"></textarea>
                     </div>
 
                     <div class="row mt-1">
@@ -884,30 +884,36 @@
 
                 </form>
             </div>
-            <div class="col-10 col-md-5 col-lg-5 p-0 mt-5 rounded-3 sectionBorder"
-                 style="background-color: white;height: max-content ">
-                <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Employee</h4>
+            <div class="col-10 col-md-5 col-lg-5" >
+                <div class="row p-0 mt-5 rounded-3 sectionBorder" style="background-color: white;height: max-content ">
+                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Employee</h4>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="searchEmployeeId">Search Employee :</label>
-                    <input class="form-control me-2 mt-2" id="searchEmployeeId" placeholder="Input Name/NIC/Tp Here"
-                           type="search">
+                    <div class="mb-3 ms-3 me-3 mt-3 ">
+                        <label class="fw-bold" for="searchEmployeeId">Search Employee :</label>
+                        <input class="form-control me-2 mt-2" id="searchEmployeeId" placeholder="Input Name/NIC/Tp Here" type="search">
+                    </div>
+                    <div class="m-4">
+                        <button class="btn btn-success mt-2 m-2" id="btnSaveEmployee" type="button">+ New Employee
+                        </button>
+
+                        <button class="btn btn-info mt-2 m-2" id="btnUpdateEmployee" type="button">Update Employee
+                        </button>
+
+                        <button class="btn btn-danger mt-2 m-2" id="btnDeleteEmployee" type="button">Delete Employee
+                        </button>
+
+                        <button class="btn btn-warning mt-2 m-2" id="btnResetEmployee" type="reset">Clear
+                        </button>
+
+                    </div>
                 </div>
-                <div class="m-4">
-                    <button class="btn btn-success mt-2 m-2" id="btnSaveEmployee" type="button">+ New Employee
-                    </button>
-
-                    <button class="btn btn-info mt-2 m-2" id="btnUpdateEmployee" type="button">Update Employee
-                    </button>
-
-                    <button class="btn btn-danger mt-2 m-2" id="btnDeleteEmployee" type="button">Delete Employee
-                    </button>
-
-                    <button class="btn btn-warning mt-2 m-2" id="btnResetEmployee" type="reset">Clear
-                    </button>
-
+                <div class="row mt-2">
+                    <div class="col-10 col-md-5 col-lg-1 p-0 mt-5">
+                        <img id="previewImage" src="#" alt="Preview Image" style="display: none; color: black">
+                    </div>
                 </div>
             </div>
+
             <!-- Employee Details Search Section End -->
         </div>
         <!-- Employee Details Section End -->
@@ -921,7 +927,6 @@
                         <tr>
                             <th>Code</th>
                             <th>Name</th>
-                            <th>Pic</th>
                             <th>Gender</th>
                             <th>Status</th>
                             <th>des</th>
@@ -934,6 +939,7 @@
                             <th>Email</th>
                             <th>Guardian Name</th>
                             <th>Guardian Contact</th>
+                            <th>Pic</th>
                         </tr>
                         </thead>
                         <tbody id="employeeTable"></tbody>
@@ -942,6 +948,14 @@
             </div>
         </div>
         <!-- View Employee Details Table End -->
+        <div>
+            <h1>Empty Image View Example</h1>
+            <!-- With empty src attribute -->
+            <img id="profilePicture" src="" alt="Empty Image" width="200" height="200" style="display: none">
+
+            <!-- Without src attribute -->
+            <img alt="Empty Image" width="200" height="200">
+        </div>
     </div>
 </main>
 <!-- Employee End-->
