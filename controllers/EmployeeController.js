@@ -72,8 +72,6 @@ $("#btnSaveEmployee").click(function () {
     formData.append('guardianName', $("#guardianName").val());
     formData.append('emergencyContact', $("#emergencyContact").val());
 
-    // var fileInput = $("#employeeProfilePic")[0];
-    // var file = fileInput.files[0];
     formData.append('profilePic', picDecode);
     $.ajax({
         method: "POST",
@@ -99,14 +97,57 @@ $("#btnSaveEmployee").click(function () {
         }
     });
 });
+/**
+ * Employee Update
+ * */
+$("#btnUpdateEmployee").click(function () {
+    var formData = new FormData();
+
+    formData.append('code', employeeCode);
+    formData.append('name', $("#employeeName").val());
+    formData.append('gender', $("input[name='flexRadioDefaultEmployee']:checked").val());
+    formData.append('status', $("#employeeStatus").val());
+    formData.append('designation', $("#designation").val());
+    formData.append('role', $("#employeeRole").val());
+    formData.append('dob', $("#employeeDob").val());
+    formData.append('dateOfJoin', $("#employeeDateOfJoin").val());
+    formData.append('branchName', $("#branchName").val());
+    formData.append('address', $("#employeeAddress").val());
+    formData.append('contact', $("#employeeContact").val());
+    formData.append('email', $("#employeeEmail").val());
+    formData.append('guardianName', $("#guardianName").val());
+    formData.append('emergencyContact', $("#emergencyContact").val());
+    formData.append('profilePic', picDecode);
+    $.ajax({
+        method: "PUT",
+        url: "http://localhost:8080/shoe/api/v1/employee",
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function (data) {
+            Swal.fire(
+                'Success!',
+                'Employee has been updated successfully!',
+                'success'
+            );
+            loadEmployeeData();
+            $("#btnResetEmployee").click();
+        },
+        error: function (xhr, exception) {
+            Swal.fire(
+                'Error!',
+                'Employee has been updated unsuccessfully!',
+                'error'
+            );
+        }
+    });
+});
 
 /**
  * Table Click Action
  * */
 $(document).ready(function () {
     $("#employeeTable").on("click", "tr", function () {
-
-
 
         var code = $(this).find("td:eq(0)").text();
         var name = $(this).find("td:eq(1)").text();
@@ -124,40 +165,42 @@ $(document).ready(function () {
         var emergencyContact = $(this).find("td:eq(13)").text();
         var pic = $(this).find("td:eq(14)").text();
 
+        employeeCode=code;
         $("#employeeName").val(name);
-        $("#employeeAddress").val(pic);
+        var radioMale = document.getElementById("flexRadioDefault3");
+        var radioFemale = document.getElementById("flexRadioDefault4");
+        if (gender === "MALE"){
+            radioMale.click();
+        }else {
+            radioFemale.click();
+        }
+        $("#employeeStatus").val(status);
+        $("#designation").val(designation);
+        $("#employeeRole").val(rol);
+        $("#employeeDob").val(dob);
+        $("#employeeDateOfJoin").val(dateOfJoin);
+        $("#branchName").val(branch);
+        $("#employeeAddress").val(address);
+        $("#employeeContact").val(contact);
+        $("#employeeEmail").val(email);
+        $("#guardianName").val(guardianName);
+        $("#emergencyContact").val(emergencyContact);
         base64Decoder(pic)
 
     });
 });
 
-// document.getElementById('employeeProfilePic').addEventListener('change', function(event) {
-//     console.log("sa")
-//     var file = event.target.files[0];
-//     if (file) {
-//         var reader = new FileReader();
-//         reader.onload = function(e) {
-//             console.log(e.target.result)
-//             document.getElementById('previewImage').src = e.target.result;
-//             document.getElementById('previewImage').style.display = 'block';
-//         };
-//         reader.readAsDataURL(file);
-//     }
-// });
-
-
 var enc_file = document.getElementById('employeeProfilePic')
 var enc_text = document.getElementById('employeeName')
-var enc_button = document.getElementById('btnDeleteEmployee')
-var base64Output = document.getElementById('base64-output')
+// var base64Output = document.getElementById('base64-output')
 //
-var dec_text = document.getElementById('emergencyContact')
-var dec_button = document.getElementById('btnUpdateEmployee')
+// var dec_text = document.getElementById('emergencyContact')
+// var dec_button = document.getElementById('btnUpdateEmployee')
 
 // for encoding
 document.getElementById('employeeProfilePic').addEventListener('change', function(event) {
-    console.log("ssssss")
-    if(enc_file.value !== '' || enc_text.value !== ''){
+    // if(enc_file.value !== '' || enc_text.value !== ''){
+    if(enc_file.value !== ''){
         if(enc_file.value !== ''){
             base64Encoder(enc_file.files[0])
         }else{
@@ -174,40 +217,20 @@ document.getElementById('employeeProfilePic').addEventListener('change', functio
 
 // encode function
 function base64Encoder(blob){
-    // this function will get a blob file and convert into base64 string
     var reader = new FileReader();
     reader.readAsDataURL(blob)
     reader.onloadend = () => {
-        base64Output.innerHTML = reader.result
+        // base64Output.innerHTML = reader.result
         picDecode = reader.result
-        console.log(picDecode)
-        // $("#employeeName").val(reader.result);
-    }
-}
-//
-// for decoding
-dec_button.onclick = () => {
-    console.log("decode")
-    if(dec_text.value !== ''){
-        base64Decoder(dec_text.value)
+        base64Decoder(picDecode)
     }
 }
 
-// decode function
-// function base64Decoder(base64){
-//     // this will get base64 and convert to blob
-//     const http = new XMLHttpRequest();
-//     http.onload = () => {
-//         // convert blob to url and download
-//         var url = window.URL.createObjectURL(http.response)
-//         var link = document.createElement('a')
-//         link.href = url
-//         link.download = 'image-from-base64.png'
-//         link.click()
+// for decoding
+// dec_button.onclick = () => {
+//     if(dec_text.value !== ''){
+//         base64Decoder(dec_text.value)
 //     }
-//     http.responseType = 'blob'
-//     http.open('GET', base64, true)
-//     http.send()
 // }
 function base64Decoder(base64){
     const http = new XMLHttpRequest();
