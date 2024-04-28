@@ -193,7 +193,6 @@ $("#btnResetCustomer").click(function () {
     $("#address").val("");
     $("#email").val("");
 })
-
 /**
  * Table Click Action
  * */

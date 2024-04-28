@@ -142,7 +142,55 @@ $("#btnUpdateEmployee").click(function () {
         }
     });
 });
-
+/**
+ * Employee delete
+ * */
+$("#btnDeleteEmployee").click(function () {
+    $.ajax({
+        method:"DELETE",
+        contentType:"application/json",
+        url:"http://localhost:8080/shoe/api/v1/employee/"+employeeCode,
+        async:true,
+        success: function (data) {
+            Swal.fire(
+                'Success!',
+                'Employee has been saved successfully!',
+                'success'
+            );
+            loadEmployeeData();
+            $("#btnResetEmployee").click();
+        },
+        error: function (xhr, exception) {
+            Swal.fire(
+                'Error!',
+                'Employee has been saved unsuccessfully!',
+                'error'
+            );
+        }
+    })
+});
+/**
+ * clear input fields Values Method
+ * */
+$("#btnResetEmployee").click(function () {
+    $("#employeeName").val("");
+    var radioButtons = document.querySelectorAll('input[name="flexRadioDefaultEmployee"]');
+    radioButtons.forEach(function(radioButton) {
+        radioButton.checked = false;
+    });
+    $("#employeeStatus").val("");
+    $("#designation").val("");
+    $("#employeeRole").val("");
+    $("#employeeDob").val("");
+    $("#employeeDateOfJoin").val("");
+    $("#branchName").val("");
+    $("#employeeAddress").val("");
+    $("#employeeContact").val("");
+    $("#employeeEmail").val("");
+    $("#guardianName").val("");
+    $("#emergencyContact").val("");
+    document.getElementById('previewImage').style.display = 'none';
+})
 /**
  * Table Click Action
  * */
