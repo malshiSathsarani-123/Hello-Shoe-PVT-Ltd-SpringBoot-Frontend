@@ -143,28 +143,57 @@ $("#btnUpdateCustomer").click(function () {
  * Customer delete
  * */
 $("#btnDeleteCustomer").click(function () {
-    $.ajax({
-        method:"DELETE",
-        contentType:"application/json",
-        url:"http://localhost:8080/shoe/api/v1/customer/"+customerId01,
-        async:true,
-        success: function (data) {
-            Swal.fire(
-                'Success!',
-                'Item has been saved successfully!',
-                'success'
-            );
-            loadCustomerData();
-            $("#btnResetCustomer").click();
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
         },
-        error: function (xhr, exception) {
-            Swal.fire(
-                'Error!',
-                'Item has been saved unsuccessfully!',
-                'error'
-            );
+        buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method:"DELETE",
+                contentType:"application/json",
+                url:"http://localhost:8080/shoe/api/v1/customer/"+customerId01,
+                async:true,
+                success: function (data) {
+                    Swal.fire(
+                        'Success!',
+                        'Item has been saved successfully!',
+                        'success'
+                    );
+                    loadCustomerData();
+                    $("#btnResetCustomer").click();
+                },
+                error: function (xhr, exception) {
+                    Swal.fire(
+                        'Error!',
+                        'Item has been saved unsuccessfully!',
+                        'error'
+                    );
+                }
+            })
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelled",
+                text: "Your imaginary file is safe :)",
+                icon: "error"
+
+            });
         }
-    })
+
+    });
 });
 
 function getSelectedRadioButtonValue() {
@@ -193,6 +222,7 @@ $("#btnResetCustomer").click(function () {
     $("#address").val("");
     $("#email").val("");
 })
+
 /**
  * Table Click Action
  * */

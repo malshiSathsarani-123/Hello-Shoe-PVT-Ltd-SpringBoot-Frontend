@@ -146,28 +146,57 @@ $("#btnUpdateEmployee").click(function () {
  * Employee delete
  * */
 $("#btnDeleteEmployee").click(function () {
-    $.ajax({
-        method:"DELETE",
-        contentType:"application/json",
-        url:"http://localhost:8080/shoe/api/v1/employee/"+employeeCode,
-        async:true,
-        success: function (data) {
-            Swal.fire(
-                'Success!',
-                'Employee has been saved successfully!',
-                'success'
-            );
-            loadEmployeeData();
-            $("#btnResetEmployee").click();
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
         },
-        error: function (xhr, exception) {
-            Swal.fire(
-                'Error!',
-                'Employee has been saved unsuccessfully!',
-                'error'
-            );
+        buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method:"DELETE",
+                contentType:"application/json",
+                url:"http://localhost:8080/shoe/api/v1/employee/"+employeeCode,
+                async:true,
+                success: function (data) {
+                    Swal.fire(
+                        'Success!',
+                        'Employee has been saved successfully!',
+                        'success'
+                    );
+                    loadEmployeeData();
+                    $("#btnResetEmployee").click();
+                },
+                error: function (xhr, exception) {
+                    Swal.fire(
+                        'Error!',
+                        'Employee has been saved unsuccessfully!',
+                        'error'
+                    );
+                }
+            })
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelled",
+                text: "Your imaginary file is safe :)",
+                icon: "error"
+
+            });
         }
-    })
+
+    });
 });
 /**
  * clear input fields Values Method
