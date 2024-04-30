@@ -178,16 +178,16 @@
                     <li class="nav-item" id="orderBtn">
                         <a class="nav-link" href="#">Orders</a>
                     </li>
-                    <li class="nav-item" id="orderDetailsBtn">
-                        <a class="nav-link" href="#">Order Details</a>
+                    <li class="nav-item" id="inventoryBtn">
+                        <a class="nav-link" href="#">Inventory</a>
                     </li>
 
                 </ul>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-outline-primary btn-m" type="button"><i class="fa-solid fa-user-plus"></i>
+                    <button id="signupNavBtn" class="btn btn-outline-primary btn-m" type="button"><i class="fa-solid fa-user-plus"></i>
                         Sign Up
                     </button>
-                    <button class="btn btn-outline-secondary" type="button"><i
+                    <button id="logoutBtn" class="btn btn-outline-secondary" type="button"><i
                             class="fa-solid fa-right-from-bracket"></i> Log Out
                     </button>
                 </div>
@@ -1081,191 +1081,179 @@
 </main>
 <!-- Item End-->
 
-<!-- Inventory Start-->
-<!--<main class="container-fluid" id="inventorySection">-->
-<!--    &lt;!&ndash; Inventory Header Start &ndash;&gt;-->
-<!--    <div class="container d-flex flex-grow-1 flex-column">-->
-<!--        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">-->
-<!--            <h2 id="H1-6" style="font-family: 'Arial Rounded MT Bold',serif"><i class="bi bi-people"></i> Inventory-->
-<!--            </h2>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; Inventory Header End &ndash;&gt;-->
+<!-- Inventory From Start-->
+<main class="container-fluid" id="inventorySection">
+    <!-- Inventory Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-2" style="font-family: 'Arial Rounded MT Bold',serif"><i
+                    class="bi bi-cart"></i> Place Inventory
+            </h2>
+        </div>
+    </div>
+    <!-- Inventory Header End -->
 
-<!--    &lt;!&ndash; Inventory Header Section Start &ndash;&gt;-->
-<!--    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">-->
-<!--        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">-->
-<!--            <h6 id="H9">Home > Inventory</h6>-->
-<!--            <hr>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; Inventory Header Section End &ndash;&gt;-->
+    <!-- Inventory Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6-2">Home > Place Inventory</h6>
+            <hr>
+        </div>
+        <!-- Inventory Header Section End -->
 
-<!--        &lt;!&ndash; Inventory Details Section Start &ndash;&gt;-->
-<!--        <div class="row justify-content-around " style="height: max-content">-->
+        <!-- Inventory Details Section Start -->
+        <div class="row justify-content-around" style="height: min-content">
 
-<!--            &lt;!&ndash; Inventory Details Search Section Start &ndash;&gt;-->
-<!--            <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">-->
+            <!-- Inventory Invoice Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Invoice Details</h5>
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="cmbSupplierId">Supplier ID :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="cmbSupplierId"></select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="suppliesDate">Supplies Date :</label>
+                        <input class="form-control border-dark" id="suppliesDate" type="date">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="supplierName">Name :</label>
+                        <input class="form-control border-dark" disabled id="supplierName" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="supplierOrderAddress">Address :</label>
+                        <input class="form-control border-dark" disabled id="supplierOrderAddress" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
 
-<!--                <form action="inventory" id="inventoryForm">-->
+                </div>
+            </div>
+            <!-- Inventory Invoice Details Section End -->
 
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="itemCode">Inventory Name :</label>-->
-<!--                            <input class="form-control" id="itemCode" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="itemDesc">Profile Pic :</label>-->
-<!--                            <input class="form-control" id="itemDesc" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
+            <!-- Inventory Item Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Item Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="cmbItemCode">Item Code :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="cmbItemCode"></select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemName">Item Description :</label>
+                        <input class="form-control border-dark" disabled id="itemName" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-4 col-lg-6">
+                        <label class="fw-bold" for="buyPrice">Unit Price :</label>
+                        <input class="form-control border-dark" id="buyPrice" type="number">
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-6">
+                        <label class="fw-bold" for="profitMargin">Profit (%):</label>
+                        <input class="form-control border-dark" id="profitMargin" type="number">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="buyQty">Buy Qty :</label>
+                        <input class="form-control border-dark" id="buyQty" type="number">
+                        <strong class="control-error" id="lblCheckQty"></strong>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-6">
+                        <label class="fw-bold" for="qtyOnHand">QtyOnHand :</label>
+                        <input class="form-control border-dark" disabled id="qtyOnHand" type="number">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6 mt-4 ">
+                        <button class="btn btn-primary rounded-2" id="btnAddToCart" type="button" >Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Inventory Item Details Section End -->
 
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="itemCode">Inventory Name :</label>-->
-<!--                            <input class="form-control" id="itemCode" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="itemDesc">Profile Pic :</label>-->
-<!--                            <input class="form-control" id="itemDesc" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
+            <!-- Inventory Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-3 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center bg-secondary p-2 text-light rounded-3">Payment Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="inventoryTotal">Total :</label>
+                        <input class="form-control border-dark" disabled id="inventoryTotal" type="number">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="inventoryDiscount">Discount :</label>
+                        <input class="form-control border-dark" id="inventoryDiscount" role="spinbutton" type="number">
+                    </div>
+                </div>
 
-<!--                    </div>-->
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="inventorySubTotal">Sub Total :</label>
+                        <input class="form-control border-dark" disabled id="inventorySubTotal" type="number">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="paymentMethod">Payment :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="paymentMethod">
+                            <option>Payment Method</option>
+                            <option>CASH</option>
+                            <option>CARD</option>
+                            <option>CHECK</option>
+                        </select>
+                    </div>
+                </div>
 
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="qty">Designation :</label>-->
-<!--                            <input class="form-control" id="qty" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="pic">Designation :</label>-->
-<!--                            <input class="form-control" id="pic" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="inventoryCash">Cash :</label>
+                        <input class="form-control border-dark" id="inventoryCash" type="number">
+                        <strong class="control-error" id="lblCheckSubtotal"></strong>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="inventoryBalance">Balance :</label>
+                        <input class="form-control border-dark" disabled id="inventoryBalance" type="number">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mt-4">
+                        <button class="btn btn-success rounded-2" id="btnPurchase" type="submit">Purchase</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Inventory Details Section End -->
 
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="inventoryCategory">DOB :</label>-->
-<!--                            <input class="form-control" id="inventoryCategory" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="unitPriceSale">Date Of Join :</label>-->
-<!--                            <input class="form-control" id="unitPriceSale" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="unitPriceBuy">Branch Name :</label>-->
-<!--                            <input class="form-control" id="unitPriceBuy" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="expectedProfit">Address :</label>-->
-<!--                            <input class="form-control" id="expectedProfit" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="profitMargin">Contact :</label>-->
-<!--                            <input class="form-control" id="profitMargin" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="inventoryStatus">Email :</label>-->
-<!--                            <input class="form-control" id="inventoryStatus" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row mt-1">-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="guardianName">Guardian Name :</label>-->
-<!--                            <input class="form-control" id="guardianName" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
-<!--                            <label class="fw-bold" for="emergencyContact">Emergency Contact :</label>-->
-<!--                            <input class="form-control" id="emergencyContact" type="text">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
+            <!--clear All Button Section Start-->
+            <div class="d-grid col-12 col-md-2 mt-4">
+                <button class="btn btn-danger rounded-2 bold sectionBorder" id="btnClearAll" type="button">Clear All</button>
+            </div>
+            <!--clear All Button Section end-->
 
-<!--                </form>-->
-<!--            </div>-->
-<!--            <div class="col-10 col-md-5 col-lg-5" >-->
-<!--                <div class="row p-0 mt-5 rounded-3 sectionBorder" style="background-color: white;height: max-content ">-->
-<!--                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Inventory</h4>-->
+            <!-- View Cart Details Table Start -->
+            <div class="row mt-1 mt-md-2 mt-lg-3 justify-content-around" style="height: 315px;">
+                <div class="col-11 justify-content-around sectionBorder" style="height: 285px; background: white">
+                    <div class="PlaceOrderTableDiv overflow-auto" style="height: 265px;">
+                        <table class="table table-success table-striped table-bordered table-hover">
+                            <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                            <tr>
+                                <th>Item Code</th>
+                                <th>Description</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tblInventory"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- View Cart Details Table End -->
 
-<!--                    <div class="mb-3 ms-3 me-3 mt-3 ">-->
-<!--                        <label class="fw-bold" for="searchEmployeeId">Search Inventory :</label>-->
-<!--                        <input class="form-control me-2 mt-2" id="searchInventoryId" placeholder="Input Name/NIC/Tp Here" type="search">-->
-<!--                    </div>-->
-<!--                    <div class="m-4">-->
-<!--                        <button class="btn btn-success mt-2 m-2" id="btnSaveInventory" type="button">+ New Inventory-->
-<!--                        </button>-->
-
-<!--                        <button class="btn btn-info mt-2 m-2" id="btnUpdateInventory" type="button">Update Inventory-->
-<!--                        </button>-->
-
-<!--                        <button class="btn btn-danger mt-2 m-2" id="btnDeleteInventory" type="button">Delete Inventory-->
-<!--                        </button>-->
-
-<!--                        <button class="btn btn-warning mt-2 m-2" id="btnResetInventory" type="reset">Clear-->
-<!--                        </button>-->
-
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row mt-2">-->
-<!--                    <div class="col-10 col-md-5 col-lg-1 p-0 mt-5">-->
-<!--                        <img id="inventoryPreviewImage" src="#" alt="Preview Image" style="display: none; color: black">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash; Inventory Details Search Section End &ndash;&gt;-->
-<!--        </div>-->
-<!--        &lt;!&ndash; Inventory Details Section End &ndash;&gt;-->
-
-<!--        &lt;!&ndash; View Inventory Details Table Start &ndash;&gt;-->
-<!--        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">-->
-<!--            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">-->
-<!--                <div class="customerTableDiv overflow-auto" style="height: 270px;">-->
-<!--                    <table class="table table-success table-striped table-bordered table-hover">-->
-<!--                        <thead class="text-light table-dark text-center  table-bordered sticky-top">-->
-<!--                        <tr>-->
-<!--                            <th>Code</th>-->
-<!--                            <th>Name</th>-->
-<!--                            <th>Gender</th>-->
-<!--                            <th>Status</th>-->
-<!--                            <th>des</th>-->
-<!--                            <th>Role</th>-->
-<!--                            <th>Dob</th>-->
-<!--                            <th>Join Date</th>-->
-<!--                            <th>Branch</th>-->
-<!--                            <th>Address</th>-->
-<!--                            <th>Contact</th>-->
-<!--                            <th>Email</th>-->
-<!--                            <th>Guardian Name</th>-->
-<!--                            <th>Guardian Contact</th>-->
-<!--                            <th>Pic</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody id="inventoryTable"></tbody>-->
-<!--                    </table>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; View Inventory Details Table End &ndash;&gt;-->
-<!--    </div>-->
-<!--</main>-->
-<!-- Inventory End-->
+        </div>
+        <!-- Inventory Details Section End -->
+    </div>
+</main>
+<!-- Inventory From End-->
 
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -1297,6 +1285,7 @@
     $('#supplierSection').css('display', 'none');
     $('#employeeSection').css('display', 'none');
     $('#itemSection').css('display', 'none');
+    $('#inventorySection').css('display', 'none');
 
     $('#signingBtn').on('click', () => {
         $('#signing-section').css('display', 'none');
@@ -1307,6 +1296,7 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
     })
 
     $('#signupBtn').on('click', () => {
@@ -1318,6 +1308,31 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
+    })
+
+    $('#signupNavBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'block');
+        $('#navigation-section').css('display', 'none');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
+    })
+
+    $('#logoutBtn').on('click', () => {
+        $('#signing-section').css('display', 'block');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'none');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
     })
 
     $('#homeBtn').on('click', () => {
@@ -1329,6 +1344,7 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
     })
 
     $('#customerBtn').on('click', () => {
@@ -1340,6 +1356,7 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
     })
 
     $('#supplierBtn').on('click', () => {
@@ -1351,6 +1368,7 @@
         $('#supplierSection').css('display', 'block');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
     })
 
     $('#employeeBtn').on('click', () => {
@@ -1362,6 +1380,7 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'block');
         $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
     })
 
     $('#itemBtn').on('click', () => {
@@ -1373,6 +1392,19 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'block');
+        $('#inventorySection').css('display', 'none');
+    })
+
+    $('#inventoryBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'block');
     })
 </script>
 
