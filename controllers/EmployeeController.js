@@ -207,9 +207,9 @@ $("#btnResetEmployee").click(function () {
     radioButtons.forEach(function(radioButton) {
         radioButton.checked = false;
     });
-    $("#employeeStatus").val("");
     $("#designation").val("");
-    $("#employeeRole").val("");
+    $("#employeeStatus").val("Status");
+    $("#employeeRole").val("Role");
     $("#employeeDob").val("");
     $("#employeeDateOfJoin").val("");
     $("#branchName").val("");

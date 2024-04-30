@@ -132,7 +132,7 @@ $("#btnUpdateSupplier").click(function () {
  * */
 $("#btnResetSupplier").click(function () {
     $("#txtSupName").val("");
-    $("#category").val("");
+    $("#category").val("Category")
     $("#supplierContact1").val("");
     $("#supplierContact2").val("");
     $("#supplierAddress").val("");
@@ -167,7 +167,7 @@ $("#btnDeleteSupplier").click(function () {
                 success: function (data) {
                     Swal.fire(
                         'Success!',
-                        'Item has been saved successfully!',
+                        'Supplier has been deleted successfully!',
                         'success'
                     );
                     loadSupplierData();
@@ -176,7 +176,7 @@ $("#btnDeleteSupplier").click(function () {
                 error: function (xhr, exception) {
                     Swal.fire(
                         'Error!',
-                        'Item has been saved unsuccessfully!',
+                        'Supplier has been deleted unsuccessfully!',
                         'error'
                     );
                 }

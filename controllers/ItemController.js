@@ -78,3 +78,93 @@ $("#btnSaveItem").click(function () {
         }
     })
 });
+/**
+ * clear input fields Values Method
+ * */
+$("#btnResetItem").click(function () {
+
+    $("#itemDescription").val("");
+    $("#itemGender").val("Gender");
+    $("#occasion").val("Occasion");
+    $("#verities").val("Verities");
+})
+/**
+ * Item delete
+ * */
+$("#btnDeleteItem").click(function () {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method:"DELETE",
+                contentType:"application/json",
+                url:"http://localhost:8080/shoe/api/v1/item/"+itemCode,
+                async:true,
+                success: function (data) {
+                    Swal.fire(
+                        'Success!',
+                        'Item has been deleted successfully!',
+                        'success'
+                    );
+                    loadItemData();
+                    $("#btnResetItem").click();
+                },
+                error: function (xhr, exception) {
+                    Swal.fire(
+                        'Error!',
+                        'Item has been deleted unsuccessfully!',
+                        'error'
+                    );
+                }
+            })
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelled",
+                text: "Your imaginary file is safe :)",
+                icon: "error"
+
+            });
+        }
+
+    });
+});
+/**
+ * Table Click Action
+ * */
+$(document).ready(function () {
+    $("#itemTable").on("click", "tr", function () {
+        var code = $(this).find("td:eq(0)").text();
+        var description = $(this).find("td:eq(1)").text();
+        var itemGender = $(this).find("td:eq(2)").text();
+        var occasion = $(this).find("td:eq(3)").text();
+        var verities = $(this).find("td:eq(4)").text();
+
+        console.log(description)
+        console.log(itemGender)
+        console.log(occasion)
+        console.log(verities)
+
+        itemCode = code;
+        $("#itemDescription").val(description);
+        $("#itemGender").val(itemGender);
+        $("#occasion").val(occasion);
+        $("#verities").val(verities);
+
+    });
+});

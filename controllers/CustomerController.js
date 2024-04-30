@@ -217,7 +217,7 @@ $("#btnResetCustomer").click(function () {
     });
     $("#JoinDate").val("");
     $("#dob").val("");
-    $("#level").val("level");
+    $("#level").val("Level");
     $("#contact").val("");
     $("#address").val("");
     $("#email").val("");
