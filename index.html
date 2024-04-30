@@ -48,17 +48,17 @@
                             <!-- 2 column grid layout with text inputs for the first and last names -->
 
                             <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Email address</label>
-                                <input type="email" id="form3Example3" class="form-control" />
-
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="loginEmail">Address :</label>
+                                <input class="form-control" id="loginEmail" type="email">
+                                <span class="control-error"></span>
                             </div>
 
                             <!-- Password input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <label class="form-label" for="form3Example4">Password</label>
-                                <input type="password" id="form3Example4" class="form-control" />
-
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="loginPassword">Address :</label>
+                                <input class="form-control" id="loginPassword" type="password">
+                                <span class="control-error"></span>
                             </div>
 
                             <!-- Submit button -->
@@ -110,14 +110,14 @@
 
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Email address</label>
+                                <label class="form-label" for="flexRadioDefault1">Email address</label>
                                 <input type="email" id="form3Example1" class="form-control" />
 
                             </div>
 
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <label class="form-label" for="form3Example4">Password</label>
+                                <label class="form-label" for="flexRadioDefault2">Password</label>
                                 <input type="password" id="form3Example2" class="form-control" />
 
                             </div>
@@ -960,6 +960,309 @@
 </main>
 <!-- Employee End-->
 
+<!-- Item Start-->
+<main class="container-fluid" id="itemSection">
+    <!-- Item Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-item" style="font-family: 'Arial Rounded MT Bold',serif"><i class="bi bi-people"></i> Item
+            </h2>
+        </div>
+    </div>
+    <!-- Item Header End -->
+
+    <!-- Item Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H7-item">Home > Item</h6>
+            <hr>
+        </div>
+        <!-- Item Header Section End -->
+
+        <!-- Item Details Section Start -->
+        <div class="row justify-content-around " style="height: max-content">
+
+            <!-- Item Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">
+
+                <form action="item" id="itemForm">
+
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="itemDescription">Shoe Description :</label>
+                            <input class="form-control" id="itemDescription" type="text">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="itemGender">Gender :</label>
+                            <select aria-label="Default select example" class="form-select border-dark" id="itemGender">
+                                <option>Gender</option>
+                                <option value="MAN">MAN</option>
+                                <option value="WOMEN">WOMEN</option>
+                            </select>
+                        </div>
+                    <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                        <label class="fw-bold" for="occasion">Occasion :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="occasion">
+                            <option>Occasion</option>
+                            <option value="FORMAL">FORMAL</option>
+                            <option value="CASUAL">CASUAL</option>
+                            <option value="INDUSTRIAL">INDUSTRIAL</option>
+                            <option value="SPORT">SPORT</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                        <label class="fw-bold" for="verities">Verities :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="verities">
+                            <option>Verities</option>
+                            <option value="HEEL">HEEL</option>
+                            <option value="FLAT">FLAT</option>
+                            <option value="WEDGES">WEDGES</option>
+                            <option value="FLIP_FLOPS">FLIP_FLOPS</option>
+                            <option value="SANDALS">SANDALS</option>
+                            <option value="SHOES">SHOES</option>
+                            <option value="SLIPPERS">SLIPPERS</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-10 col-md-5 col-lg-5 p-0 mt-5 rounded-3 sectionBorder"
+                 style="background-color: white;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Item</h4>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="searchSupplierId">Search Item :</label>
+                    <input class="form-control me-2 mt-2" id="searchItemId" placeholder="Input Name/NIC/Tp Here"
+                           type="search">
+                </div>
+                <div class="m-4">
+                    <button class="btn btn-success mt-2 m-2" id="btnSaveItem" type="button">+ New Item
+                    </button>
+
+                    <button class="btn btn-info mt-2 m-2" id="btnUpdateItem" type="button">Update Item
+                    </button>
+
+                    <button class="btn btn-danger mt-2 m-2" id="btnDeleteItem" type="button">Delete Item
+                    </button>
+
+                    <button class="btn btn-warning mt-2 m-2" id="btnResetItem" type="reset">Clear
+                    </button>
+
+                </div>
+            </div>
+            <!-- Item Details Search Section End -->
+        </div>
+        <!-- Item Details Section End -->
+
+        <!-- View Item Details Table Start -->
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Shoe Code</th>
+                            <th>Description</th>
+                            <th>Gender</th>
+                            <th>Occasion</th>
+                            <th>Verities</th>
+                        </tr>
+                        </thead>
+                        <tbody id="itemTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Item Details Table End -->
+    </div>
+</main>
+<!-- Item End-->
+
+<!-- Inventory Start-->
+<!--<main class="container-fluid" id="inventorySection">-->
+<!--    &lt;!&ndash; Inventory Header Start &ndash;&gt;-->
+<!--    <div class="container d-flex flex-grow-1 flex-column">-->
+<!--        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">-->
+<!--            <h2 id="H1-6" style="font-family: 'Arial Rounded MT Bold',serif"><i class="bi bi-people"></i> Inventory-->
+<!--            </h2>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Inventory Header End &ndash;&gt;-->
+
+<!--    &lt;!&ndash; Inventory Header Section Start &ndash;&gt;-->
+<!--    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">-->
+<!--        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">-->
+<!--            <h6 id="H9">Home > Inventory</h6>-->
+<!--            <hr>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Inventory Header Section End &ndash;&gt;-->
+
+<!--        &lt;!&ndash; Inventory Details Section Start &ndash;&gt;-->
+<!--        <div class="row justify-content-around " style="height: max-content">-->
+
+<!--            &lt;!&ndash; Inventory Details Search Section Start &ndash;&gt;-->
+<!--            <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">-->
+
+<!--                <form action="inventory" id="inventoryForm">-->
+
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="itemCode">Inventory Name :</label>-->
+<!--                            <input class="form-control" id="itemCode" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="itemDesc">Profile Pic :</label>-->
+<!--                            <input class="form-control" id="itemDesc" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="itemCode">Inventory Name :</label>-->
+<!--                            <input class="form-control" id="itemCode" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="itemDesc">Profile Pic :</label>-->
+<!--                            <input class="form-control" id="itemDesc" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="qty">Designation :</label>-->
+<!--                            <input class="form-control" id="qty" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="pic">Designation :</label>-->
+<!--                            <input class="form-control" id="pic" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="inventoryCategory">DOB :</label>-->
+<!--                            <input class="form-control" id="inventoryCategory" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="unitPriceSale">Date Of Join :</label>-->
+<!--                            <input class="form-control" id="unitPriceSale" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="unitPriceBuy">Branch Name :</label>-->
+<!--                            <input class="form-control" id="unitPriceBuy" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="expectedProfit">Address :</label>-->
+<!--                            <input class="form-control" id="expectedProfit" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="profitMargin">Contact :</label>-->
+<!--                            <input class="form-control" id="profitMargin" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="inventoryStatus">Email :</label>-->
+<!--                            <input class="form-control" id="inventoryStatus" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row mt-1">-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="guardianName">Guardian Name :</label>-->
+<!--                            <input class="form-control" id="guardianName" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">-->
+<!--                            <label class="fw-bold" for="emergencyContact">Emergency Contact :</label>-->
+<!--                            <input class="form-control" id="emergencyContact" type="text">-->
+<!--                            <span class="control-error"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="col-10 col-md-5 col-lg-5" >-->
+<!--                <div class="row p-0 mt-5 rounded-3 sectionBorder" style="background-color: white;height: max-content ">-->
+<!--                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Inventory</h4>-->
+
+<!--                    <div class="mb-3 ms-3 me-3 mt-3 ">-->
+<!--                        <label class="fw-bold" for="searchEmployeeId">Search Inventory :</label>-->
+<!--                        <input class="form-control me-2 mt-2" id="searchInventoryId" placeholder="Input Name/NIC/Tp Here" type="search">-->
+<!--                    </div>-->
+<!--                    <div class="m-4">-->
+<!--                        <button class="btn btn-success mt-2 m-2" id="btnSaveInventory" type="button">+ New Inventory-->
+<!--                        </button>-->
+
+<!--                        <button class="btn btn-info mt-2 m-2" id="btnUpdateInventory" type="button">Update Inventory-->
+<!--                        </button>-->
+
+<!--                        <button class="btn btn-danger mt-2 m-2" id="btnDeleteInventory" type="button">Delete Inventory-->
+<!--                        </button>-->
+
+<!--                        <button class="btn btn-warning mt-2 m-2" id="btnResetInventory" type="reset">Clear-->
+<!--                        </button>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row mt-2">-->
+<!--                    <div class="col-10 col-md-5 col-lg-1 p-0 mt-5">-->
+<!--                        <img id="inventoryPreviewImage" src="#" alt="Preview Image" style="display: none; color: black">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Inventory Details Search Section End &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Inventory Details Section End &ndash;&gt;-->
+
+<!--        &lt;!&ndash; View Inventory Details Table Start &ndash;&gt;-->
+<!--        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">-->
+<!--            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">-->
+<!--                <div class="customerTableDiv overflow-auto" style="height: 270px;">-->
+<!--                    <table class="table table-success table-striped table-bordered table-hover">-->
+<!--                        <thead class="text-light table-dark text-center  table-bordered sticky-top">-->
+<!--                        <tr>-->
+<!--                            <th>Code</th>-->
+<!--                            <th>Name</th>-->
+<!--                            <th>Gender</th>-->
+<!--                            <th>Status</th>-->
+<!--                            <th>des</th>-->
+<!--                            <th>Role</th>-->
+<!--                            <th>Dob</th>-->
+<!--                            <th>Join Date</th>-->
+<!--                            <th>Branch</th>-->
+<!--                            <th>Address</th>-->
+<!--                            <th>Contact</th>-->
+<!--                            <th>Email</th>-->
+<!--                            <th>Guardian Name</th>-->
+<!--                            <th>Guardian Contact</th>-->
+<!--                            <th>Pic</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody id="inventoryTable"></tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; View Inventory Details Table End &ndash;&gt;-->
+<!--    </div>-->
+<!--</main>-->
+<!-- Inventory End-->
+
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -978,6 +1281,7 @@
 <script src="controllers/CustomerController.js"></script>
 <script src="controllers/SupplierController.js"></script>
 <script src="controllers/EmployeeController.js"></script>
+<script src="controllers/ItemController.js"></script>
 
 <script>
 
@@ -988,6 +1292,7 @@
     $('#customerSection').css('display', 'none');
     $('#supplierSection').css('display', 'none');
     $('#employeeSection').css('display', 'none');
+    $('#itemSection').css('display', 'none');
 
     $('#signingBtn').on('click', () => {
         $('#signing-section').css('display', 'none');
@@ -997,6 +1302,7 @@
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
     })
 
     $('#signupBtn').on('click', () => {
@@ -1007,6 +1313,7 @@
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
     })
 
     $('#homeBtn').on('click', () => {
@@ -1017,6 +1324,7 @@
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
     })
 
     $('#customerBtn').on('click', () => {
@@ -1027,6 +1335,7 @@
         $('#customerSection').css('display', 'block');
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
     })
 
     $('#supplierBtn').on('click', () => {
@@ -1037,6 +1346,7 @@
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'block');
         $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
     })
 
     $('#employeeBtn').on('click', () => {
@@ -1047,8 +1357,19 @@
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'block');
+        $('#itemSection').css('display', 'none');
     })
 
+    $('#itemBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'block');
+    })
 </script>
 
 </body>
