@@ -1,3 +1,46 @@
+var itemCode = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadItemData();
+});
+/**
+ * Search Supplier Data
+ * */
+$('#searchItemId').on("keyup", function () {
+    let value = $(this).val().toLowerCase();
+    $("tbody tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
+/**
+ * Load Item Data
+ * */
+const loadItemData = () => {
+    var tableBody = $('#itemTable');
+    $.ajax({
+        method: 'GET',
+        url: "http://localhost:8080/shoe/api/v1/item",
+        async:true,
+        success: function (item) {
+            tableBody.empty();
+
+            item.forEach(function (item) {
+                var row = $('<tr>');
+
+                row.append($('<td>').text(item.shoeCode));
+                row.append($('<td>').text(item.description));
+                row.append($('<td>').text(item.itemGender));
+                row.append($('<td>').text(item.occasion));
+                row.append($('<td>').text(item.verities));
+
+                tableBody.append(row);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Failed to fetch item data. Status code:");
+        }
+    });
+};
 /**
  * Item Save
  * */
@@ -23,7 +66,7 @@ $("#btnSaveItem").click(function () {
                 'Item has been saved successfully!',
                 'success'
             );
-            loadSupplierData()
+            loadItemData()
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
