@@ -73,6 +73,7 @@ $("#btnSaveSupplier").click(function () {
                 'success'
             );
             loadSupplierData()
+            loadSupplierId()
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
@@ -115,6 +116,7 @@ $("#btnUpdateSupplier").click(function () {
                 'success'
             );
             loadSupplierData()
+            loadSupplierId()
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
@@ -171,6 +173,7 @@ $("#btnDeleteSupplier").click(function () {
                         'success'
                     );
                     loadSupplierData();
+                    loadSupplierId();
                     $("#btnResetSupplier").click();
                 },
                 error: function (xhr, exception) {

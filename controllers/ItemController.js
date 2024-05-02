@@ -67,6 +67,7 @@ $("#btnSaveItem").click(function () {
                 'success'
             );
             loadItemData()
+            loadItemId();
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
@@ -121,6 +122,7 @@ $("#btnDeleteItem").click(function () {
                         'success'
                     );
                     loadItemData();
+                    loadItemId();
                     $("#btnResetItem").click();
                 },
                 error: function (xhr, exception) {

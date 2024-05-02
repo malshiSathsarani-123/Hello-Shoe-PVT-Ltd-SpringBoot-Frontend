@@ -1137,13 +1137,17 @@
             <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
                 <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Item Details</h5>
                 <div class="row mt-1">
-                    <div class="col-12 col-md-6 col-lg-6">
+                    <div class="col-12 col-md-6 col-lg-5">
                         <label class="fw-bold" for="cmbItemCode">Item Code :</label>
                         <select aria-label="Default select example" class="form-select border-dark" id="cmbItemCode"></select>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="itemName">Item Description :</label>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="fw-bold" for="itemName">Description :</label>
                         <input class="form-control border-dark" disabled id="itemName" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <label class="fw-bold" for="shoeSize">Size:</label>
+                        <input class="form-control border-dark" id="shoeSize" type="number">
                     </div>
                 </div>
                 <div class="row mt-1">
@@ -1157,17 +1161,20 @@
                     </div>
                 </div>
                 <div class="row mt-1">
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="buyQty">Buy Qty :</label>
-                        <input class="form-control border-dark" id="buyQty" type="number">
-                        <strong class="control-error" id="lblCheckQty"></strong>
-                    </div>
                     <div class="col-12 col-md-4 col-lg-6">
                         <label class="fw-bold" for="qtyOnHand">QtyOnHand :</label>
-                        <input class="form-control border-dark" disabled id="qtyOnHand" type="number">
+                        <input class="form-control border-dark" disabled id="qtyOnHand" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="shoePic">Pic :</label>
+                        <input class="form-control border-dark" id="shoePic" type="file">
                     </div>
                 </div>
                 <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="buyQty">Buy Qty :</label>
+                        <input class="form-control border-dark" id="buyQty" type="number">
+                    </div>
                     <div class="col-12 col-md-6 col-lg-6 mt-4 ">
                         <button class="btn btn-primary rounded-2" id="btnAddToCart" type="button" >Add To Cart</button>
                     </div>
@@ -1175,58 +1182,36 @@
             </div>
             <!-- Inventory Item Details Section End -->
 
+            <div class="col-10 col-md-5 col-lg-3 p-3 mt-2 rounded-3" style="border-radius: 100%">
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6 mt-4 ">
+                        <img id="shoePreview" src="#" style="display: block; color: black">
+                    </div>
+                </div>
+            </div>
+
             <!-- Inventory Details Section Start -->
-            <div class="col-10 col-md-5 col-lg-3 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+            <div class="col-10 col-md-5 col-lg-9 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
                 <h5 class="text-center bg-secondary p-2 text-light rounded-3">Payment Details</h5>
                 <div class="row mt-1">
-                    <div class="col-12 col-md-6 col-lg-6">
+                    <div class="col-12 col-md-6 col-lg-4">
                         <label class="fw-bold" for="inventoryTotal">Total :</label>
                         <input class="form-control border-dark" disabled id="inventoryTotal" type="number">
                     </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="inventoryDiscount">Discount :</label>
-                        <input class="form-control border-dark" id="inventoryDiscount" role="spinbutton" type="number">
-                    </div>
-                </div>
-
-                <div class="row mt-1">
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="inventorySubTotal">Sub Total :</label>
-                        <input class="form-control border-dark" disabled id="inventorySubTotal" type="number">
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="paymentMethod">Payment :</label>
-                        <select aria-label="Default select example" class="form-select border-dark" id="paymentMethod">
-                            <option>Payment Method</option>
-                            <option>CASH</option>
-                            <option>CARD</option>
-                            <option>CHECK</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mt-1">
-                    <div class="col-12 col-md-6 col-lg-6">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <label class="fw-bold" for="inventoryCash">Cash :</label>
                         <input class="form-control border-dark" id="inventoryCash" type="number">
-                        <strong class="control-error" id="lblCheckSubtotal"></strong>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-6">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <label class="fw-bold" for="inventoryBalance">Balance :</label>
                         <input class="form-control border-dark" disabled id="inventoryBalance" type="number">
                     </div>
-                    <div class="col-12 col-md-6 col-lg-6 mt-4">
+                    <div class="col-12 col-md-6 col-lg-1 mt-2">
                         <button class="btn btn-success rounded-2" id="btnPurchase" type="submit">Purchase</button>
                     </div>
                 </div>
             </div>
             <!-- Inventory Details Section End -->
-
-            <!--clear All Button Section Start-->
-            <div class="d-grid col-12 col-md-2 mt-4">
-                <button class="btn btn-danger rounded-2 bold sectionBorder" id="btnClearAll" type="button">Clear All</button>
-            </div>
-            <!--clear All Button Section end-->
 
             <!-- View Cart Details Table Start -->
             <div class="row mt-1 mt-md-2 mt-lg-3 justify-content-around" style="height: 315px;">
@@ -1235,11 +1220,18 @@
                         <table class="table table-success table-striped table-bordered table-hover">
                             <thead class="text-light table-dark text-center  table-bordered sticky-top">
                             <tr>
-                                <th>Item Code</th>
+                                <th>Shoe Code</th>
                                 <th>Description</th>
+                                <th>Category</th>
+                                <th>Size</th>
                                 <th>Unit Price</th>
+                                <th style="display:none;">Unit Price Sale</th>
+                                <th style="display:none;">expectedProfit</th>
+                                <th style="display:none;">profitMargin</th>
+                                <th style="display:none;">status</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
+                                <th>Pic</th>
                             </tr>
                             </thead>
                             <tbody id="tblInventory"></tbody>
@@ -1268,15 +1260,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-<!--<script src="controllers/DashboardController.js"></script>-->
-
 <script src="controllers/CustomerController.js"></script>
 <script src="controllers/SupplierController.js"></script>
 <script src="controllers/EmployeeController.js"></script>
 <script src="controllers/ItemController.js"></script>
+<script src="controllers/InventoryController.js"></script>
 
 <script>
-
     $('#signing-section').css('display', 'block');
     $('#signup-section').css('display', 'none');
     $('#navigation-section').css('display', 'none');
