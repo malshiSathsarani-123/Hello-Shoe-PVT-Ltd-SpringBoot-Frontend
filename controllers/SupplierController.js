@@ -1,8 +1,8 @@
 var supplierId01 = null;
 
-document.addEventListener('DOMContentLoaded', function () {
-    loadSupplierData();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     loadSupplierData();
+// });
 /**
  * Search Supplier Data
  * */
@@ -21,6 +21,9 @@ const loadSupplierData = () => {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/supplier",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (item) {
             tableBody.empty();
 
@@ -58,6 +61,9 @@ $("#btnSaveSupplier").click(function () {
         contentType:"application/json",
         url:"http://localhost:8080/shoe/api/v1/supplier",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data:JSON.stringify({
             name:name,
             category:category,
@@ -100,6 +106,9 @@ $("#btnUpdateSupplier").click(function () {
         contentType:"application/json",
         url:"http://localhost:8080/shoe/api/v1/supplier",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data:JSON.stringify({
             code:supplierId01,
             name:name,
@@ -166,6 +175,9 @@ $("#btnDeleteSupplier").click(function () {
                 contentType:"application/json",
                 url:"http://localhost:8080/shoe/api/v1/supplier/"+supplierId01,
                 async:true,
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
                 success: function (data) {
                     Swal.fire(
                         'Success!',

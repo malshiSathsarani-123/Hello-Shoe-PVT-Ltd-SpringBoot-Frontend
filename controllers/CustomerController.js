@@ -1,8 +1,8 @@
 var customerId01 = null;
 
-document.addEventListener('DOMContentLoaded', function () {
-    loadCustomerData();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     loadCustomerData();
+// });
 /**
  * Search customer Data
  * */
@@ -21,6 +21,9 @@ const loadCustomerData = () => {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/customer",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (item) {
             tableBody.empty();
 
@@ -64,6 +67,9 @@ $("#btnSaveCustomer").click(function () {
         contentType:"application/json",
         url:"http://localhost:8080/shoe/api/v1/customer",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data:JSON.stringify({
             name:name,
             gender:gender,
@@ -109,6 +115,9 @@ $("#btnUpdateCustomer").click(function () {
         contentType:"application/json",
         url:"http://localhost:8080/shoe/api/v1/customer",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data:JSON.stringify({
             code:customerId01,
             name:name,
@@ -165,6 +174,9 @@ $("#btnDeleteCustomer").click(function () {
                 contentType:"application/json",
                 url:"http://localhost:8080/shoe/api/v1/customer/"+customerId01,
                 async:true,
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
                 success: function (data) {
                     Swal.fire(
                         'Success!',

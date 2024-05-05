@@ -1,8 +1,8 @@
 var itemCode = null;
 
-document.addEventListener('DOMContentLoaded', function () {
-    loadItemData();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     loadItemData();
+// });
 /**
  * Search Supplier Data
  * */
@@ -21,6 +21,9 @@ const loadItemData = () => {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/item",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (item) {
             tableBody.empty();
 
@@ -54,6 +57,9 @@ $("#btnSaveItem").click(function () {
         contentType:"application/json",
         url:"http://localhost:8080/shoe/api/v1/item",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data:JSON.stringify({
             description:description,
             itemGender:itemGender,
@@ -115,6 +121,9 @@ $("#btnDeleteItem").click(function () {
                 contentType:"application/json",
                 url:"http://localhost:8080/shoe/api/v1/item/"+itemCode,
                 async:true,
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
                 success: function (data) {
                     Swal.fire(
                         'Success!',
@@ -156,11 +165,6 @@ $(document).ready(function () {
         var itemGender = $(this).find("td:eq(2)").text();
         var occasion = $(this).find("td:eq(3)").text();
         var verities = $(this).find("td:eq(4)").text();
-
-        console.log(description)
-        console.log(itemGender)
-        console.log(occasion)
-        console.log(verities)
 
         itemCode = code;
         $("#itemDescription").val(description);

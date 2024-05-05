@@ -1,9 +1,9 @@
 var employeeCode = null;
 var picDecode = null;
 
-document.addEventListener('DOMContentLoaded', function () {
-    loadEmployeeData();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     loadEmployeeData();
+// });
 /**
  * Search employee Data
  * */
@@ -22,6 +22,9 @@ const loadEmployeeData = () => {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/employee",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (item) {
             tableBody.empty();
 
@@ -78,6 +81,9 @@ $("#btnSaveEmployee").click(function () {
         url: "http://localhost:8080/shoe/api/v1/employee",
         processData: false,
         contentType: false,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data: formData,
         success: function (data) {
             Swal.fire(
@@ -123,6 +129,9 @@ $("#btnUpdateEmployee").click(function () {
         url: "http://localhost:8080/shoe/api/v1/employee",
         processData: false,
         contentType: false,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data: formData,
         success: function (data) {
             Swal.fire(
@@ -168,6 +177,9 @@ $("#btnDeleteEmployee").click(function () {
                 contentType:"application/json",
                 url:"http://localhost:8080/shoe/api/v1/employee/"+employeeCode,
                 async:true,
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
                 success: function (data) {
                     Swal.fire(
                         'Success!',
@@ -218,7 +230,7 @@ $("#btnResetEmployee").click(function () {
     $("#employeeEmail").val("");
     $("#guardianName").val("");
     $("#emergencyContact").val("");
-    document.getElementById('previewImage').style.display = 'none';
+    document.getElementById('employeePicView').style.display = 'none';
 })
 /**
  * Table Click Action
@@ -269,10 +281,6 @@ $(document).ready(function () {
 
 var enc_file = document.getElementById('employeeProfilePic')
 var enc_text = document.getElementById('employeeName')
-// var base64Output = document.getElementById('base64-output')
-//
-// var dec_text = document.getElementById('emergencyContact')
-// var dec_button = document.getElementById('btnUpdateEmployee')
 
 // for encoding
 document.getElementById('employeeProfilePic').addEventListener('change', function(event) {
@@ -297,25 +305,18 @@ function base64Encoder(blob){
     var reader = new FileReader();
     reader.readAsDataURL(blob)
     reader.onloadend = () => {
-        // base64Output.innerHTML = reader.result
         picDecode = reader.result
-        base64Decoder(picDecode)
+        base64Decoder(picDecodeItem)
     }
 }
 
-// for decoding
-// dec_button.onclick = () => {
-//     if(dec_text.value !== ''){
-//         base64Decoder(dec_text.value)
-//     }
-// }
 function base64Decoder(base64){
     const http = new XMLHttpRequest();
     http.onload = () => {
         const reader = new FileReader();
         reader.onloadend = () => {
-            document.getElementById('previewImage').src = reader.result;
-            document.getElementById('previewImage').style.display = 'block';
+            document.getElementById('employeePicView').src = reader.result;
+            document.getElementById('employeePicView').style.display = 'block';
         };
         reader.readAsDataURL(http.response);
     }
