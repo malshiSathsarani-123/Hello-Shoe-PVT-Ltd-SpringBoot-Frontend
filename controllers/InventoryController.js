@@ -1,12 +1,12 @@
 var category = null;
 var picDecodeItem = null;
 
-document.addEventListener('DOMContentLoaded', function () {
-    $("#inventoryTotal").val(0);
-    loadSupplierId();
-    loadItemId();
-    $("#qtyOnHand").val("0");
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     $("#inventoryTotal").val(0);
+//     loadSupplierId();
+//     loadItemId();
+//     $("#qtyOnHand").val("0");
+// });
 /**
  * Load Supplier Id
  **/
@@ -15,6 +15,9 @@ const loadSupplierId = () => {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/supplier",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (supplier) {
             var selectElement = $("#cmbSupplierId");
             selectElement.empty();
@@ -43,6 +46,9 @@ $("#cmbSupplierId").on("change", function() {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/supplier",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (supplier) {
             supplier.forEach(function (supplier) {
                 if (selectedValue === supplier.code){
@@ -65,6 +71,9 @@ const loadItemId = () => {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/item",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (item) {
             var selectElement = $("#cmbItemCode");
             selectElement.empty();
@@ -93,6 +102,9 @@ $("#cmbItemCode").on("change", function() {
         method: 'GET',
         url: "http://localhost:8080/shoe/api/v1/item",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         success: function (item) {
             item.forEach(function (item) {
                 if (selectedValue === item.shoeCode){
@@ -116,6 +128,9 @@ $("#shoeSize").on('input', function(event) {
         url: "http://localhost:8080/shoe/api/v1/inventory/getSizeQty",
         method: 'GET',
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data: {
             shoeCode: shoeCode,
             size: size
@@ -160,7 +175,7 @@ $("#btnAddToCart").on("click", () => {
     let shoeCodeExists = false;
 
     $("#tblInventory tr").each(function() {
-        if ($(this).find("td:first").text() === shoeCode) {
+        if ($(this).find("td:first").text() === shoeCode  && $(this).find("td:nth-child(4)").text() === size) {
             shoeCodeExists = true;
             let existingQty = parseInt($(this).find("td:nth-child(10)").text());
             let existingTotal = parseFloat($(this).find("td:nth-child(11)").text());
@@ -202,6 +217,9 @@ var postData = createInventoryDtoList();
         contentType:"application/json",
         url:"http://localhost:8080/shoe/api/v1/inventory",
         async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
         data:JSON.stringify(postData),
         success: function (data) {
             Swal.fire(
@@ -215,8 +233,9 @@ var postData = createInventoryDtoList();
             $("#supplierOrderAddress").val("");
             $("#tblInventory").empty();
             $("#inventoryCash").val("");
-            $("#inventoryTotal").val("");
             $("#inventoryBalance").val("");
+            $("#inventoryTotal").val(0);
+            $("#qtyOnHand").val(0);
         },
         error: function (xhr, exception) {
             Swal.fire(
@@ -236,7 +255,7 @@ const clear = () => {
     $("#buyQty").val("");
     $("#shoePic").val("");
     $("#qtyOnHand").val("");
-    document.getElementById('shoePreview').style.display = 'none';
+    document.getElementById('inventoryPicView').style.display = 'none';
 }
 
 const netTotal = (total) => {
@@ -273,18 +292,18 @@ return inventoryDtoList;
 }
 
 
-var enc_file = document.getElementById('shoePic')
+var enc_file_shoe = document.getElementById('shoePic')
 
 // for encoding
 document.getElementById('shoePic').addEventListener('change', function(event) {
     // if(enc_file.value !== '' || enc_text.value !== ''){
-    if(enc_file.value !== ''){
-        if(enc_file.value !== ''){
-            base64Encoder(enc_file.files[0])
+    if(enc_file_shoe.value !== ''){
+        if(enc_file_shoe.value !== ''){
+            base64EncoderInventory(enc_file_shoe.files[0])
         }else{
             const http = new XMLHttpRequest();
             http.onload = () => {
-                base64Encoder(http.response)
+                base64EncoderInventory(http.response)
             }
             http.responseType = 'blob'
             http.open('GET', enc_text.value, true)
@@ -294,22 +313,22 @@ document.getElementById('shoePic').addEventListener('change', function(event) {
 });
 
 // encode function
-function base64Encoder(blob){
+function base64EncoderInventory(blob){
     var reader = new FileReader();
     reader.readAsDataURL(blob)
     reader.onloadend = () => {
         picDecodeItem = reader.result
-        base64Decoder(picDecodeItem)
+        base64DecoderInventory(picDecodeItem)
     }
 }
 
-function base64Decoder(base64){
+function base64DecoderInventory(base64){
     const http = new XMLHttpRequest();
     http.onload = () => {
         const reader = new FileReader();
         reader.onloadend = () => {
-            document.getElementById('shoePreview').src = reader.result;
-            document.getElementById('shoePreview').style.display = 'block';
+            document.getElementById('inventoryPicView').src = reader.result;
+            document.getElementById('inventoryPicView').style.display = 'block';
         };
         reader.readAsDataURL(http.response);
     }

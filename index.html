@@ -42,38 +42,32 @@
                 <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
                 <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
+                <div class="col-12 col-md-12 col-lg-12 p-0 mt-2 rounded-3 sectionBorder" style="background-color: white">
                 <div class="card bg-glass">
-                    <div class="card-body px-4 py-5 px-md-5">
+                    <div class="card-body">
                         <form>
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
-
-                            <!-- Email input -->
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="loginEmail">Address :</label>
-                                <input class="form-control" id="loginEmail" type="email">
+                                <label class="fw-bold" for="signingEmail">Email :</label>
+                                <input class="form-control" id="signingEmail" type="email" name="id">
                                 <span class="control-error"></span>
                             </div>
-
-                            <!-- Password input -->
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="loginPassword">Address :</label>
-                                <input class="form-control" id="loginPassword" type="password">
-                                <span class="control-error"></span>
+                                <label class="fw-bold" for="signingPassword">Password :</label>
+                                <input class="form-control" id="signingPassword" type="password" name="id">
                             </div>
-
                             <!-- Submit button -->
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" id="signingBtn">
-                                SIGN IN
-                            </button>
-
+                            <div class="m-4">
+                                <button class="btn btn-success mt-2 m-2" id="signingBtn" type="button">SIGN IN
+                                </button>
+                            </div>
                             <!-- Register buttons -->
                             <div class="text-center">
-                                <p>or sign up with:</p>
                                 <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1" id="signupBtn">
-                                    <i class="fab fa-facebook-f"></i> SIGN UP
+                                    Sign Up
                                 </button>
                             </div>
                         </form>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -103,38 +97,54 @@
                 <div id="radius-shape-3" class="position-absolute rounded-circle shadow-5-strong"></div>
                 <div id="radius-shape-4" class="position-absolute shadow-5-strong"></div>
 
+                <div class="col-12 col-md-12 col-lg-12 p-0 mt-2 rounded-3 sectionBorder" style="background-color: white">
                 <div class="card bg-glass">
-                    <div class="card-body px-4 py-5 px-md-5">
+                    <div class="card-body">
                         <form>
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
-
-                            <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <label class="form-label" for="flexRadioDefault1">Email address</label>
-                                <input type="email" id="form3Example1" class="form-control" />
-
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="signupEmployeeCode">Employee Code :</label>
+                                <select aria-label="Default select example" class="form-select border-dark" id="signupEmployeeCode"></select>
+<!--                                <input class="form-control" id="signupEmployeeCode" type="text">-->
+                                <span class="control-error"></span>
                             </div>
-
-                            <!-- Password input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <label class="form-label" for="flexRadioDefault2">Password</label>
-                                <input type="password" id="form3Example2" class="form-control" />
-
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="signupName">Name :</label>
+                                <input class="form-control" id="signupName" type="text">
+                                <span class="control-error"></span>
                             </div>
-
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="signupEmail">Email :</label>
+                                <input class="form-control" id="signupEmail" type="email">
+                                <span class="control-error"></span>
+                            </div>
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="signupPassword">Password :</label>
+                                <input class="form-control" id="signupPassword" type="password">
+                            </div>
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="signupRePassword">Re Password :</label>
+                                <input class="form-control" id="signupRePassword" type="password">
+                            </div>
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="signupRole">Role :</label>
+                                <select aria-label="Default select example" class="form-select border-dark" id="signupRole">
+                                    <option>Role</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                    <option value="USER">USER</option>
+                                </select>
+                            </div>
                             <!-- Submit button -->
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" id="signupBtn1">
-                                SIGN UP
-                            </button>
-
-                            <!-- Register buttons -->
+                            <div class="m-4">
+                                <button class="btn btn-warning mt-2 m-2" id="btnSaveUser" type="button">SIGN UP
+                                </button>
+                            </div>
                             <div class="text-center">
-                                <p>or sign up with:</p>
                                 <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1" id="signingBtn1">
-                                    <i class="fab fa-facebook-f"></i> Sign In
+                                    Sign In
                                 </button>
                             </div>
                         </form>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -912,8 +922,10 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-10 col-md-5 col-lg-1 p-0 mt-5">
-                        <img id="previewImage" src="#" alt="Preview Image" style="display: none; color: black">
+                    <div class="row mt-1">
+                        <div class="col-12 col-md-6 col-lg-6 mt-4 ">
+                            <img id="employeePicView" src="#" style="display: block; color: black">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -952,14 +964,6 @@
             </div>
         </div>
         <!-- View Employee Details Table End -->
-        <div>
-            <h1>Empty Image View Example</h1>
-            <!-- With empty src attribute -->
-            <img id="profilePicture" src="" alt="Empty Image" width="200" height="200" style="display: none">
-
-            <!-- Without src attribute -->
-            <img alt="Empty Image" width="200" height="200">
-        </div>
     </div>
 </main>
 <!-- Employee End-->
@@ -1185,7 +1189,7 @@
             <div class="col-10 col-md-5 col-lg-3 p-3 mt-2 rounded-3" style="border-radius: 100%">
                 <div class="row mt-1">
                     <div class="col-12 col-md-6 col-lg-6 mt-4 ">
-                        <img id="shoePreview" src="#" style="display: block; color: black">
+                        <img id="inventoryPicView" src="#" style="display: block; color: black">
                     </div>
                 </div>
             </div>
@@ -1265,8 +1269,10 @@
 <script src="controllers/EmployeeController.js"></script>
 <script src="controllers/ItemController.js"></script>
 <script src="controllers/InventoryController.js"></script>
+<script src="controllers/UserController.js"></script>
 
 <script>
+
     $('#signing-section').css('display', 'block');
     $('#signup-section').css('display', 'none');
     $('#navigation-section').css('display', 'none');
@@ -1277,16 +1283,17 @@
     $('#itemSection').css('display', 'none');
     $('#inventorySection').css('display', 'none');
 
-    $('#signingBtn').on('click', () => {
-        $('#signing-section').css('display', 'none');
+    $('#signingBtn1').on('click', () => {
+        $('#signing-section').css('display', 'block');
         $('#signup-section').css('display', 'none');
-        $('#navigation-section').css('display', 'block');
-        $('#homeSection').css('display', 'block');
+        $('#navigation-section').css('display', 'none');
+        $('#homeSection').css('display', 'none');
         $('#customerSection').css('display', 'none');
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+
     })
 
     $('#signupBtn').on('click', () => {
