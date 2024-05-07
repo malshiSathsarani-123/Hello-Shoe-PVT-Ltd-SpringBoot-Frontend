@@ -1251,6 +1251,170 @@
 </main>
 <!-- Inventory From End-->
 
+<!-- OrderFrom Start-->
+<main class="container-fluid" id="OrderSection">
+    <!-- Order Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-Order" style="font-family: 'Arial Rounded MT Bold',serif"><i
+                    class="bi bi-cart"></i> Place Order
+            </h2>
+        </div>
+    </div>
+    <!-- Order Header End -->
+
+    <!-- Order Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6-Order">Home > Place Order</h6>
+            <hr>
+        </div>
+        <!-- Order Header Section End -->
+
+        <!-- Order Details Section Start -->
+        <div class="row justify-content-around" style="height: min-content">
+
+            <!-- Order Invoice Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Invoice Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="cmbCustomerId">Customer ID :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="cmbCustomerId"></select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerName">Name :</label>
+                        <input class="form-control border-dark" disabled id="customerName" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerLevel">Level :</label>
+                        <input class="form-control border-dark" disabled id="customerLevel" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="totalPoint">Point :</label>
+                        <input class="form-control border-dark" disabled id="totalPoint" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerEmail">Email :</label>
+                        <input class="form-control border-dark" disabled id="customerEmail" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerContact">Contact :</label>
+                        <input class="form-control border-dark" disabled id="customerContact" type="text">
+                    </div>
+                </div>
+            </div>
+            <!-- Order Invoice Details Section End -->
+
+            <!-- Order Item Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Item Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="cmbOrderItemCode">Item Code :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="cmbOrderItemCode"></select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemOrderDescription">Description :</label>
+                        <input class="form-control border-dark" disabled id="itemOrderDescription" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemPrice">Unit Price :</label>
+                        <input class="form-control border-dark" disabled id="itemPrice" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="qtyOnHandOrder">Qty On Hand :</label>
+                        <input class="form-control border-dark" disabled id="qtyOnHandOrder" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="buyQtyOrder">Buy Qty :</label>
+                        <input class="form-control border-dark" id="buyQtyOrder" type="text">
+                        <strong class="control-error" id="lblCheckQty"></strong>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mt-4 ">
+                        <button class="btn btn-primary rounded-2" id="btnAddToCartOrder" type="button">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Order Item Details Section End -->
+
+            <!-- Order Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-3 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center bg-secondary p-2 text-light rounded-3">Payment Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderTotal">Total :</label>
+                        <input class="form-control border-dark" disabled id="orderTotal" type="number">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderDiscount">Discount :</label>
+                        <input class="form-control border-dark" id="orderDiscount" role="spinbutton" type="number">
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderSubTotal">Sub Total :</label>
+                        <input class="form-control border-dark" disabled id="orderSubTotal" type="number">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="paymentMethod">Payment :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="paymentMethod">
+                            <option>Payment</option>
+                            <option VALUE="CASH">CASH</option>
+                            <option VALUE="CARD">CARD</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderCash">Cash :</label>
+                        <input class="form-control border-dark" id="orderCash" type="text">
+                        <strong class="control-error" id="lblCheckSubtotal"></strong>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mt-4">
+                        <button class="btn btn-success rounded-2" id="btnPurchaseOrder" type="button">Purchase</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Order Details Section End -->
+            <!-- View Cart Details Table Start -->
+            <div class="row mt-1 mt-md-2 mt-lg-3 justify-content-around" style="height: 315px;">
+                <div class="col-11 justify-content-around sectionBorder" style="height: 285px; background: white">
+                    <div class="PlaceOrderTableDiv overflow-auto" style="height: 265px;">
+                        <table class="table table-success table-striped table-bordered table-hover">
+                            <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                            <tr>
+                                <th>Item Code</th>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Order Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tblAddToCart"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- View Cart Details Table End -->
+
+        </div>
+        <!-- Order Details Section End -->
+    </div>
+</main>
+<!-- OrderFrom End-->
+
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -1282,6 +1446,7 @@
     $('#employeeSection').css('display', 'none');
     $('#itemSection').css('display', 'none');
     $('#inventorySection').css('display', 'none');
+    $('#OrderSection').css('display', 'none');
 
     $('#signingBtn1').on('click', () => {
         $('#signing-section').css('display', 'block');
@@ -1293,6 +1458,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
 
     })
 
@@ -1306,6 +1472,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#signupNavBtn').on('click', () => {
@@ -1318,6 +1485,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#logoutBtn').on('click', () => {
@@ -1330,6 +1498,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#homeBtn').on('click', () => {
@@ -1342,6 +1511,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#customerBtn').on('click', () => {
@@ -1354,6 +1524,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#supplierBtn').on('click', () => {
@@ -1366,6 +1537,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#employeeBtn').on('click', () => {
@@ -1378,6 +1550,7 @@
         $('#employeeSection').css('display', 'block');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#itemBtn').on('click', () => {
@@ -1390,6 +1563,7 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'block');
         $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
     })
 
     $('#inventoryBtn').on('click', () => {
@@ -1402,6 +1576,19 @@
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
         $('#inventorySection').css('display', 'block');
+        $('#OrderSection').css('display', 'none');
+    })
+    $('#orderBtn').on('click', () => {
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'block');
     })
 </script>
 
