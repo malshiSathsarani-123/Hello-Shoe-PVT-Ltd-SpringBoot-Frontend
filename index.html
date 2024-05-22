@@ -326,164 +326,45 @@
     </div>
     <!--slider ended-->
 
-    <div class="details">
-        <div class="recentOrders">
-            <div class="cardHeader">
-                <h2>Recent Orders</h2>
-                <a href="#" class="btn">View All</a>
-            </div>
-
-            <table>
-                <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>Payment</td>
-                    <td>Status</td>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr>
-                    <td>Star Refrigerator</td>
-                    <td>$1200</td>
-                    <td>Paid</td>
-                    <td><span class="status delivered">Delivered</span></td>
-                </tr>
-
-                <tr>
-                    <td>Dell Laptop</td>
-                    <td>$110</td>
-                    <td>Due</td>
-                    <td><span class="status pending">Pending</span></td>
-                </tr>
-
-                <tr>
-                    <td>Apple Watch</td>
-                    <td>$1200</td>
-                    <td>Paid</td>
-                    <td><span class="status return">Return</span></td>
-                </tr>
-
-                <tr>
-                    <td>Addidas Shoes</td>
-                    <td>$620</td>
-                    <td>Due</td>
-                    <td><span class="status inProgress">In Progress</span></td>
-                </tr>
-
-                <tr>
-                    <td>Star Refrigerator</td>
-                    <td>$1200</td>
-                    <td>Paid</td>
-                    <td><span class="status delivered">Delivered</span></td>
-                </tr>
-
-                <tr>
-                    <td>Dell Laptop</td>
-                    <td>$110</td>
-                    <td>Due</td>
-                    <td><span class="status pending">Pending</span></td>
-                </tr>
-
-                <tr>
-                    <td>Apple Watch</td>
-                    <td>$1200</td>
-                    <td>Paid</td>
-                    <td><span class="status return">Return</span></td>
-                </tr>
-
-                <tr>
-                    <td>Addidas Shoes</td>
-                    <td>$620</td>
-                    <td>Due</td>
-                    <td><span class="status inProgress">In Progress</span></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ================= New Customers ================ -->
-        <div class="recentCustomers">
-            <div class="cardHeader">
-                <h2>Recent Customers</h2>
-            </div>
-
-            <table>
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>David <br> <span>Italy</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>Amit <br> <span>India</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>David <br> <span>Italy</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>Amit <br> <span>India</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>David <br> <span>Italy</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>Amit <br> <span>India</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>David <br> <span>Italy</span></h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                    </td>
-                    <td>
-                        <h4>Amit <br> <span>India</span></h4>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <!--    admin panel start-->
+    <div class="container" id="admin-panel-section">
+        <h1 id="adminTopic">Admin Panel</h1>
+        <table class="data-table">
+            <tr>
+                <th>Description</th>
+                <th>Data</th>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>
+                    <input id="selectedDate" type="date">
+                </td>
+            </tr>
+            <tr>
+                <td>Total Sales</td>
+                <td id="total-sales">$0.00</td>
+            </tr>
+            <tr>
+                <td>Total Profit</td>
+                <td id="total-profit">$0.00</td>
+            </tr>
+            <tr>
+                <td>The Most Sale Item</td>
+                <td id="most-sale-item">N/A</td>
+            </tr>
+            <tr>
+                <td>A Picture of the Most Sale Item</td>
+                <td class="most-sale-item">
+                    <img id="most-sale-item-image" src="" alt="Most Sale Item">
+                </td>
+            </tr>
+            <tr>
+                <td>The Most Sale Item Qty</td>
+                <td id="most-sale-item-qty">0</td>
+            </tr>
+        </table>
     </div>
+<!--    admin panel end-->
 </main>
 <!-- Home End-->
 
@@ -1307,6 +1188,11 @@
                         <input class="form-control border-dark" disabled id="customerContact" type="text">
                     </div>
                 </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderDate">Date :</label>
+                        <input class="form-control border-dark" id="orderDate" type="date">                    </div>
+                </div>
             </div>
             <!-- Order Invoice Details Section End -->
 
@@ -1413,6 +1299,7 @@
                                 <th>Price</th>
                                 <th>Order Quantity</th>
                                 <th>Total</th>
+                                <th style="display: none">Pic</th>
                             </tr>
                             </thead>
                             <tbody id="tblOrder"></tbody>
@@ -1448,6 +1335,7 @@
 <script src="controllers/InventoryController.js"></script>
 <script src="controllers/UserController.js"></script>
 <script src="controllers/OrderController.js"></script>
+<script src="controllers/AdminPanelController.js"></script>
 
 <script>
 

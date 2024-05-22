@@ -1,3 +1,7 @@
+let unitPriceCost = 0;
+let unitPriceAllCost = 0;
+let orderItemPic = null;
+
 /**
  * Load Customer Id
  **/
@@ -132,7 +136,8 @@ $("#itemOrderSize").on('input', function(event) {
         success: function (item) {
             $("#qtyOnHandOrder").val(item.qty)
             $("#itemPrice").val(item.unitPriceSale)
-
+            unitPriceCost = item.unitPriceBuy;
+            orderItemPic = item.pic
         },
         error: function(xhr, status, error) {
             console.error("Error:", error);
@@ -177,6 +182,7 @@ $("#btnAddToCartOrder").on("click", () => {
             $(this).find("td:nth-child(5)").text(existingQty + qty);
             $(this).find("td:nth-child(6)").text(existingTotal + total);
             netTotalOrder(total)
+            netCostOrder(qty,unitPriceCost)
             clearItemData();
             return false;
         }
@@ -190,8 +196,10 @@ $("#btnAddToCartOrder").on("click", () => {
             $("<td>").text(unitPrice),
             $("<td>").text(qty),
             $("<td>").text(total),
+            $("<td style='display:none;'>").text(orderItemPic),
         );
         $("#tblOrder").append(newRow);
+        netCostOrder(qty,unitPriceCost)
         netTotalOrder(total)
         clearItemData();
     }
@@ -206,10 +214,11 @@ $("#btnPurchaseOrder").on("click", () => {
     var orderDTO = {
         customerName :  $("#customerName").val(),
         amount: subTotal,
-        date:Date.now(),
+        date:$("#orderDate").val(),
         payment:$("#paymentMethod").val(),
         point: point,
-        userName:userName
+        userName:userName,
+        profit:subTotal - unitPriceAllCost
     };
 
     var orderItemDTOS = getOrderDetailArray();
@@ -256,6 +265,11 @@ const netTotalOrder = (total) => {
     let newTotal = (netTotal+total);
     $("#orderTotal").val(newTotal);
 }
+const netCostOrder = (qty,unitPriceCost) => {
+    let netCost = unitPriceAllCost;
+    let addCost = (qty*unitPriceCost);
+    unitPriceAllCost = netCost + addCost;
+}
 /**
  * Clear Text Field
  **/
@@ -295,6 +309,7 @@ function getOrderDetailArray() {
             size: $(this).find('td:eq(2)').text(),
             unitPrice: parseFloat($(this).find('td:eq(3)').text()),
             qty: parseInt($(this).find('td:eq(4)').text()),
+            pic: $(this).find('td:eq(6)').text(),
         };
 
         orderDetailArray.push(orderDetailDTO);
