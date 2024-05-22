@@ -75,6 +75,7 @@ $("#btnSaveCustomer").click(function () {
             gender:gender,
             joinDate:joinDate,
             level:level,
+            totalPoints:0,
             dob:dob,
             address:address,
             contact:contact,
@@ -86,7 +87,7 @@ $("#btnSaveCustomer").click(function () {
                 'Item has been saved successfully!',
                 'success'
             );
-            loadCustomerData();
+            loadTable();
             $("#btnResetCustomer").click();
         },
         error: function (xhr, exception) {
@@ -135,7 +136,7 @@ $("#btnUpdateCustomer").click(function () {
                 'Item has been saved successfully!',
                 'success'
             );
-            loadCustomerData();
+            loadTable();
             $("#btnResetCustomer").click();
         },
         error: function (xhr, exception) {
@@ -183,7 +184,7 @@ $("#btnDeleteCustomer").click(function () {
                         'Item has been saved successfully!',
                         'success'
                     );
-                    loadCustomerData();
+                    loadTable();
                     $("#btnResetCustomer").click();
                 },
                 error: function (xhr, exception) {

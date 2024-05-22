@@ -72,9 +72,8 @@ $("#btnSaveItem").click(function () {
                 'Item has been saved successfully!',
                 'success'
             );
-            loadItemData()
-            loadItemId();
-            $("#btnResetSupplier").click();
+            loadTable();
+            $("#btnResetItem").click();
         },
         error: function (xhr, exception) {
             Swal.fire(
@@ -130,8 +129,7 @@ $("#btnDeleteItem").click(function () {
                         'Item has been deleted successfully!',
                         'success'
                     );
-                    loadItemData();
-                    loadItemId();
+                    loadTable();
                     $("#btnResetItem").click();
                 },
                 error: function (xhr, exception) {

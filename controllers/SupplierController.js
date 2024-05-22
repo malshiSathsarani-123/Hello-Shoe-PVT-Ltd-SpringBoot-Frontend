@@ -1,8 +1,5 @@
 var supplierId01 = null;
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     loadSupplierData();
-// });
 /**
  * Search Supplier Data
  * */
@@ -78,8 +75,7 @@ $("#btnSaveSupplier").click(function () {
                 'Supplier has been saved successfully!',
                 'success'
             );
-            loadSupplierData()
-            loadSupplierId()
+            loadTable();
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
@@ -124,8 +120,7 @@ $("#btnUpdateSupplier").click(function () {
                 'Supplier has been saved successfully!',
                 'success'
             );
-            loadSupplierData()
-            loadSupplierId()
+            loadTable();
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
@@ -184,8 +179,7 @@ $("#btnDeleteSupplier").click(function () {
                         'Supplier has been deleted successfully!',
                         'success'
                     );
-                    loadSupplierData();
-                    loadSupplierId();
+                    loadTable();
                     $("#btnResetSupplier").click();
                 },
                 error: function (xhr, exception) {

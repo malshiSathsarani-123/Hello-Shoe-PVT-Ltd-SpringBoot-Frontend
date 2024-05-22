@@ -1319,26 +1319,32 @@
                         <select aria-label="Default select example" class="form-select border-dark" id="cmbOrderItemCode"></select>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="itemOrderDescription">Description :</label>
-                        <input class="form-control border-dark" disabled id="itemOrderDescription" type="text">
+                        <label class="fw-bold" for="itemOrderSize">Size :</label>
+                        <input class="form-control border-dark" id="itemOrderSize" type="text">
                     </div>
                 </div>
                 <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemOrderDescription">Description :</label>
+                        <input class="form-control border-dark" disabled id="itemOrderDescription" type="text">
+                    </div>
                     <div class="col-12 col-md-6 col-lg-6">
                         <label class="fw-bold" for="itemPrice">Unit Price :</label>
                         <input class="form-control border-dark" disabled id="itemPrice" type="text">
                     </div>
+                </div>
+                <div class="row mt-1">
                     <div class="col-12 col-md-6 col-lg-6">
                         <label class="fw-bold" for="qtyOnHandOrder">Qty On Hand :</label>
                         <input class="form-control border-dark" disabled id="qtyOnHandOrder" type="text">
                     </div>
-                </div>
-                <div class="row mt-1">
                     <div class="col-12 col-md-6 col-lg-6">
                         <label class="fw-bold" for="buyQtyOrder">Buy Qty :</label>
                         <input class="form-control border-dark" id="buyQtyOrder" type="text">
                         <strong class="control-error" id="lblCheckQty"></strong>
                     </div>
+                </div>
+                <div class="row mt-1">
                     <div class="col-12 col-md-6 col-lg-6 mt-4 ">
                         <button class="btn btn-primary rounded-2" id="btnAddToCartOrder" type="button">Add To Cart</button>
                     </div>
@@ -1382,6 +1388,12 @@
                         <input class="form-control border-dark" id="orderCash" type="text">
                         <strong class="control-error" id="lblCheckSubtotal"></strong>
                     </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderBalance">Balance :</label>
+                        <input class="form-control border-dark" id="orderBalance" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
                     <div class="col-12 col-md-6 col-lg-6 mt-4">
                         <button class="btn btn-success rounded-2" id="btnPurchaseOrder" type="button">Purchase</button>
                     </div>
@@ -1396,13 +1408,14 @@
                             <thead class="text-light table-dark text-center  table-bordered sticky-top">
                             <tr>
                                 <th>Item Code</th>
-                                <th>Item Name</th>
+                                <th>Description</th>
+                                <th>Size</th>
                                 <th>Price</th>
                                 <th>Order Quantity</th>
                                 <th>Total</th>
                             </tr>
                             </thead>
-                            <tbody id="tblAddToCart"></tbody>
+                            <tbody id="tblOrder"></tbody>
                         </table>
                     </div>
                 </div>
@@ -1434,6 +1447,7 @@
 <script src="controllers/ItemController.js"></script>
 <script src="controllers/InventoryController.js"></script>
 <script src="controllers/UserController.js"></script>
+<script src="controllers/OrderController.js"></script>
 
 <script>
 

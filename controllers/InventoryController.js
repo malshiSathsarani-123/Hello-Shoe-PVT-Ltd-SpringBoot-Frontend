@@ -1,12 +1,6 @@
 var category = null;
 var picDecodeItem = null;
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     $("#inventoryTotal").val(0);
-//     loadSupplierId();
-//     loadItemId();
-//     $("#qtyOnHand").val("0");
-// });
 /**
  * Load Supplier Id
  **/
@@ -227,7 +221,7 @@ var postData = createInventoryDtoList();
                 'Item has been saved successfully!',
                 'success'
             );
-            $("#cmbSupplierId").val("");
+            loadSupplierId()
             $("#supplierName").val("");
             $("#suppliesDate").val("");
             $("#supplierOrderAddress").val("");
@@ -247,7 +241,7 @@ var postData = createInventoryDtoList();
     })
 });
 const clear = () => {
-    $("#cmbItemCode").val("");
+    loadItemId();
     $("#itemName").val("");
     $("#shoeSize").val("");
     $("#buyPrice").val("");

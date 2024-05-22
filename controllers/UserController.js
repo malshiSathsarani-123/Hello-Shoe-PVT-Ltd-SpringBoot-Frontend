@@ -1,5 +1,8 @@
 let token = '';
 
+
+var userName = null;
+
 document.addEventListener('DOMContentLoaded', function () {
     loadEmployeeId();
 });
@@ -41,12 +44,11 @@ $("#btnSaveUser").click(function () {
  * Login
  **/
 $("#signingBtn").click(function () {
-    console.log("hhh")
+    loadUserName()
     var signingData = {
         email: $('#signingEmail').val(),
         password: $('#signingPassword').val(),
     };
-    console.log(signingData)
     $.ajax({
         method:"POST",
         contentType:"application/json",
@@ -128,13 +130,16 @@ const loadTable = () => {
     $('#itemSection').css('display', 'none');
     $('#inventorySection').css('display', 'none');
 
+    loadItemIdOrder()
+    loadCustomerId()
     loadCustomerData()
     loadEmployeeData()
     loadItemData()
     loadSupplierId();
     loadItemId();
     $("#inventoryTotal").val(0);
-    $("#qtyOnHand").val("0");
+    $("#orderTotal").val(0);
+    $("#qtyOnHand").val(0);
     loadSupplierData();
 }
 
@@ -158,3 +163,30 @@ $(document).ready(function() {
 
     setInterval(callRefreshToken, 45 * 60 * 1000);
 });
+
+/**
+ * Load User Name
+ **/
+function loadUserName() {
+    var selectedValue = $('#signingEmail').val();
+
+    $.ajax({
+        method: 'GET',
+        url: "http://localhost:8080/shoe/api/v1/auth/getUser",
+        async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function (user) {
+            user.forEach(function (user) {
+                if (selectedValue === user.email){
+                    userName = user.name;
+                    console.log(userName)
+                }
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Failed to fetch item data. Status code:");
+        }
+    });
+};

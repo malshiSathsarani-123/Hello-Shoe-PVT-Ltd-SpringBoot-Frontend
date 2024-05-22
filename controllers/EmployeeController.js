@@ -91,7 +91,7 @@ $("#btnSaveEmployee").click(function () {
                 'Employee has been saved successfully!',
                 'success'
             );
-            loadEmployeeData();
+            loadTable();
             $("#btnResetEmployee").click();
         },
         error: function (xhr, exception) {
@@ -139,7 +139,7 @@ $("#btnUpdateEmployee").click(function () {
                 'Employee has been updated successfully!',
                 'success'
             );
-            loadEmployeeData();
+            loadTable();
             $("#btnResetEmployee").click();
         },
         error: function (xhr, exception) {
@@ -186,7 +186,7 @@ $("#btnDeleteEmployee").click(function () {
                         'Employee has been saved successfully!',
                         'success'
                     );
-                    loadEmployeeData();
+                    loadTable();
                     $("#btnResetEmployee").click();
                 },
                 error: function (xhr, exception) {
