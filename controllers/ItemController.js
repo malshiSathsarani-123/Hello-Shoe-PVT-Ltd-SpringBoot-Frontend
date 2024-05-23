@@ -1,5 +1,5 @@
 var itemCode = null;
-
+var picDecodeItem = null;
 // document.addEventListener('DOMContentLoaded', function () {
 //     loadItemData();
 // });
@@ -63,6 +63,7 @@ $("#btnSaveItem").click(function () {
         data:JSON.stringify({
             description:description,
             itemGender:itemGender,
+            pic:picDecodeItem,
             occasion:occasion,
             verities:verities
         }),
@@ -93,6 +94,8 @@ $("#btnResetItem").click(function () {
     $("#itemGender").val("Gender");
     $("#occasion").val("Occasion");
     $("#verities").val("Verities");
+    document.getElementById('itemPicView').style.display = 'none';
+
 })
 /**
  * Item delete
@@ -172,3 +175,48 @@ $(document).ready(function () {
 
     });
 });
+
+var enc_file = document.getElementById('shoePic')
+
+// for encoding
+document.getElementById('shoePic').addEventListener('change', function(event) {
+    // if(enc_file.value !== '' || enc_text.value !== ''){
+    if(enc_file.value !== ''){
+        if(enc_file.value !== ''){
+            base64EncoderItem(enc_file.files[0])
+        }else{
+            const http = new XMLHttpRequest();
+            http.onload = () => {
+                base64EncoderItem(http.response)
+            }
+            http.responseType = 'blob'
+            http.open('GET', enc_text.value, true)
+            http.send()
+        }
+    }
+});
+
+// encode function
+function base64EncoderItem(blob){
+    var reader = new FileReader();
+    reader.readAsDataURL(blob)
+    reader.onloadend = () => {
+        picDecodeItem = reader.result
+        base64DecoderItem(picDecodeItem)
+    }
+}
+
+function base64DecoderItem(base64){
+    const http = new XMLHttpRequest();
+    http.onload = () => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            document.getElementById('itemPicView').src = reader.result;
+            document.getElementById('itemPicView').style.display = 'block';
+        };
+        reader.readAsDataURL(http.response);
+    }
+    http.responseType = 'blob';
+    http.open('GET', base64, true);
+    http.send();
+}

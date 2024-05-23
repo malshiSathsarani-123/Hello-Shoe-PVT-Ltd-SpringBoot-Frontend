@@ -3,6 +3,11 @@
     width: 20vw;
     aspect-ratio: 1/1;
 }
+#itemPicView{
+    border-radius: 100%;
+    width: 20vw;
+    aspect-ratio: 1/1;
+}
 #employeePicView{
     border-radius: 100%;
     width: 20vw;

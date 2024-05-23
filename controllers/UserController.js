@@ -2,6 +2,7 @@ let token = '';
 
 
 var userName = null;
+var role = null;
 
 document.addEventListener('DOMContentLoaded', function () {
     loadEmployeeId();
@@ -137,6 +138,8 @@ const loadTable = () => {
     loadItemData()
     loadSupplierId();
     loadItemId();
+
+    $("#returnTotal").val(0);
     $("#inventoryTotal").val(0);
     $("#orderTotal").val(0);
     $("#qtyOnHand").val(0);
@@ -181,6 +184,8 @@ function loadUserName() {
             user.forEach(function (user) {
                 if (selectedValue === user.email){
                     userName = user.name;
+                    role = user.role;
+                    console.log(userName)
                     console.log(userName)
                 }
             });

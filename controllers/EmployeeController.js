@@ -1,13 +1,9 @@
 var employeeCode = null;
-var picDecode = null;
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     loadEmployeeData();
-// });
+var picDecodeEmployee = null;
 /**
  * Search employee Data
  * */
-$('#searchCusId').on("keyup", function () {
+$('#searchEmployeeId').on("keyup", function () {
     let value = $(this).val().toLowerCase();
     $("tbody tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
@@ -45,7 +41,7 @@ const loadEmployeeData = () => {
                 row.append($('<td>').text(item.email));
                 row.append($('<td>').text(item.guardianName));
                 row.append($('<td>').text(item.emergencyContact));
-                row.append($('<td>').text(item.profilePic));
+                row.append($('<td style="display: none">').text(item.profilePic));
 
                 tableBody.append(row);
             });
@@ -75,7 +71,7 @@ $("#btnSaveEmployee").click(function () {
     formData.append('guardianName', $("#guardianName").val());
     formData.append('emergencyContact', $("#emergencyContact").val());
 
-    formData.append('profilePic', picDecode);
+    formData.append('profilePic', picDecodeEmployee);
     $.ajax({
         method: "POST",
         url: "http://localhost:8080/shoe/api/v1/employee",
@@ -123,7 +119,7 @@ $("#btnUpdateEmployee").click(function () {
     formData.append('email', $("#employeeEmail").val());
     formData.append('guardianName', $("#guardianName").val());
     formData.append('emergencyContact', $("#emergencyContact").val());
-    formData.append('profilePic', picDecode);
+    formData.append('profilePic', picDecodeEmployee);
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/shoe/api/v1/employee",
@@ -253,6 +249,8 @@ $(document).ready(function () {
         var guardianName = $(this).find("td:eq(12)").text();
         var emergencyContact = $(this).find("td:eq(13)").text();
         var pic = $(this).find("td:eq(14)").text();
+        picDecodeEmployee = $(this).find("td:eq(14)").text();
+
 
         employeeCode=code;
         $("#employeeName").val(name);
@@ -274,24 +272,24 @@ $(document).ready(function () {
         $("#employeeEmail").val(email);
         $("#guardianName").val(guardianName);
         $("#emergencyContact").val(emergencyContact);
-        base64Decoder(pic)
+        base64DecoderEmployee(pic)
 
     });
 });
 
-var enc_file = document.getElementById('employeeProfilePic')
+var enc_file_emp = document.getElementById('employeeProfilePic')
 var enc_text = document.getElementById('employeeName')
 
 // for encoding
 document.getElementById('employeeProfilePic').addEventListener('change', function(event) {
     // if(enc_file.value !== '' || enc_text.value !== ''){
-    if(enc_file.value !== ''){
-        if(enc_file.value !== ''){
-            base64Encoder(enc_file.files[0])
+    if(enc_file_emp.value !== ''){
+        if(enc_file_emp.value !== ''){
+            base64EncoderEmployee(enc_file_emp.files[0])
         }else{
             const http = new XMLHttpRequest();
             http.onload = () => {
-                base64Encoder(http.response)
+                base64EncoderEmployee(http.response)
             }
             http.responseType = 'blob'
             http.open('GET', enc_text.value, true)
@@ -301,16 +299,16 @@ document.getElementById('employeeProfilePic').addEventListener('change', functio
 });
 
 // encode function
-function base64Encoder(blob){
+function base64EncoderEmployee(blob){
     var reader = new FileReader();
     reader.readAsDataURL(blob)
     reader.onloadend = () => {
-        picDecode = reader.result
-        base64Decoder(picDecodeItem)
+        picDecodeEmployee = reader.result
+        base64DecoderEmployee(picDecodeEmployee)
     }
 }
 
-function base64Decoder(base64){
+function base64DecoderEmployee(base64){
     const http = new XMLHttpRequest();
     http.onload = () => {
         const reader = new FileReader();

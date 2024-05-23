@@ -124,6 +124,8 @@ $("#btnUpdateSupplier").click(function () {
             $("#btnResetSupplier").click();
         },
         error: function (xhr, exception) {
+            console.log(xhr)
+            console.log(exception.text)
             Swal.fire(
                 'Error!',
                 'Supplier has been saved unsuccessfully!',

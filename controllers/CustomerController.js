@@ -1,8 +1,5 @@
 var customerId01 = null;
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     loadCustomerData();
-// });
 /**
  * Search customer Data
  * */

@@ -1,5 +1,5 @@
 var category = null;
-var picDecodeItem = null;
+var picDecodeInventory = null;
 
 /**
  * Load Supplier Id
@@ -103,6 +103,9 @@ $("#cmbItemCode").on("change", function() {
             item.forEach(function (item) {
                 if (selectedValue === item.shoeCode){
                     $("#itemName").val(item.description)
+                    console.log(item)
+                    picDecodeInventory = item.pic
+                    base64DecoderInventory(picDecodeInventory)
                     category = item.verities
                 }
             });
@@ -164,7 +167,7 @@ $("#btnAddToCart").on("click", () => {
     let status = "available";
     let qty = parseInt($("#buyQty").val());
     let total = qty*unitPriceBuy;
-    let pic = picDecodeItem
+    let pic = picDecodeInventory
 
     let shoeCodeExists = false;
 
@@ -281,40 +284,39 @@ $('#tblInventory tr').each(function() {
 
     inventoryDtoList.push(inventoryDto);
 });
-console.log(inventoryDtoList)
 return inventoryDtoList;
 }
 
 
-var enc_file_shoe = document.getElementById('shoePic')
+// var enc_file_shoe = document.getElementById('shoePic')
 
-// for encoding
-document.getElementById('shoePic').addEventListener('change', function(event) {
-    // if(enc_file.value !== '' || enc_text.value !== ''){
-    if(enc_file_shoe.value !== ''){
-        if(enc_file_shoe.value !== ''){
-            base64EncoderInventory(enc_file_shoe.files[0])
-        }else{
-            const http = new XMLHttpRequest();
-            http.onload = () => {
-                base64EncoderInventory(http.response)
-            }
-            http.responseType = 'blob'
-            http.open('GET', enc_text.value, true)
-            http.send()
-        }
-    }
-});
-
-// encode function
-function base64EncoderInventory(blob){
-    var reader = new FileReader();
-    reader.readAsDataURL(blob)
-    reader.onloadend = () => {
-        picDecodeItem = reader.result
-        base64DecoderInventory(picDecodeItem)
-    }
-}
+// // for encoding
+// document.getElementById('shoePic').addEventListener('change', function(event) {
+//     // if(enc_file.value !== '' || enc_text.value !== ''){
+//     if(enc_file_shoe.value !== ''){
+//         if(enc_file_shoe.value !== ''){
+//             base64EncoderInventory(enc_file_shoe.files[0])
+//         }else{
+//             const http = new XMLHttpRequest();
+//             http.onload = () => {
+//                 base64EncoderInventory(http.response)
+//             }
+//             http.responseType = 'blob'
+//             http.open('GET', enc_text.value, true)
+//             http.send()
+//         }
+//     }
+// });
+//
+// // encode function
+// function base64EncoderInventory(blob){
+//     var reader = new FileReader();
+//     reader.readAsDataURL(blob)
+//     reader.onloadend = () => {
+//         picDecodeItem = reader.result
+//         base64DecoderInventory(picDecodeItem)
+//     }
+// }
 
 function base64DecoderInventory(base64){
     const http = new XMLHttpRequest();

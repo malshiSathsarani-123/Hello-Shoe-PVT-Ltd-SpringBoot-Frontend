@@ -836,7 +836,7 @@
                             <th>Email</th>
                             <th>Guardian Name</th>
                             <th>Guardian Contact</th>
-                            <th>Pic</th>
+                            <th style="display: none">Pic</th>
                         </tr>
                         </thead>
                         <tbody id="employeeTable"></tbody>
@@ -872,15 +872,22 @@
         <div class="row justify-content-around " style="height: max-content">
 
             <!-- Item Details Search Section Start -->
-            <div class="col-10 col-md-6 col-lg-5 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">
+            <div class="col-10 col-md-6 col-lg-4 p-0 mt-3 rounded-3 sectionBorder" style="background-color: white">
 
                 <form action="item" id="itemForm">
-
+                    <div class="row mt-4">
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
                             <label class="fw-bold" for="itemDescription">Shoe Description :</label>
                             <input class="form-control" id="itemDescription" type="text">
                             <span class="control-error"></span>
                         </div>
+                        <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
+                            <label class="fw-bold" for="shoePic">Pic :</label>
+                            <input class="form-control border-dark" id="shoePic" type="file">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+
                         <div class="mb-3 ms-3 me-1 mt-3 col-10 col-md-5 col-lg-5 ">
                             <label class="fw-bold" for="itemGender">Gender :</label>
                             <select aria-label="Default select example" class="form-select border-dark" id="itemGender">
@@ -914,7 +921,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-10 col-md-5 col-lg-5 p-0 mt-5 rounded-3 sectionBorder"
+            <div class="col-10 col-md-5 col-lg-4 p-0 mt-5 rounded-3 sectionBorder"
                  style="background-color: white;height: max-content ">
                 <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Item</h4>
 
@@ -936,6 +943,13 @@
                     <button class="btn btn-warning mt-2 m-2" id="btnResetItem" type="reset">Clear
                     </button>
 
+                </div>
+            </div>
+            <div class="col-10 col-md-5 col-lg-3 p-3 mt-2 rounded-3" style="border-radius: 100%">
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-3 mt-4 ">
+                        <img id="itemPicView" src="#" style="display: block; color: black">
+                    </div>
                 </div>
             </div>
             <!-- Item Details Search Section End -->
@@ -1049,10 +1063,6 @@
                     <div class="col-12 col-md-4 col-lg-6">
                         <label class="fw-bold" for="qtyOnHand">QtyOnHand :</label>
                         <input class="form-control border-dark" disabled id="qtyOnHand" type="text">
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <label class="fw-bold" for="shoePic">Pic :</label>
-                        <input class="form-control border-dark" id="shoePic" type="file">
                     </div>
                 </div>
                 <div class="row mt-1">
@@ -1315,6 +1325,170 @@
 </main>
 <!-- OrderFrom End-->
 
+<!-- ReturnFrom Start-->
+<main class="container-fluid" id="ReturnSection">
+    <!-- Return Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-Return" style="font-family: 'Arial Rounded MT Bold',serif"><i
+                    class="bi bi-cart"></i> Return Order
+            </h2>
+        </div>
+    </div>
+    <!-- Return Header End -->
+
+    <!-- Return Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6-Return">Home > Return Order</h6>
+            <hr>
+        </div>
+        <!-- Return Header Section End -->
+
+        <!-- Return Details Section Start -->
+        <div class="row justify-content-around" style="height: min-content">
+
+            <!-- Return Invoice Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Invoice Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderId">Order Id :</label>
+                        <input class="form-control border-dark" id="orderId" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerNameReturn">Name :</label>
+                        <input class="form-control border-dark" disabled id="customerNameReturn" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerLevelReturn">Level :</label>
+                        <input class="form-control border-dark" disabled id="customerLevelReturn" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="totalPointReturn">Point :</label>
+                        <input class="form-control border-dark" disabled id="totalPointReturn" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerEmailReturn">Email :</label>
+                        <input class="form-control border-dark" disabled id="customerEmailReturn" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerContactReturn">Contact :</label>
+                        <input class="form-control border-dark" disabled id="customerContactReturn" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="customerIdReturn">Customer Id :</label>
+                        <input class="form-control border-dark" disabled id="customerIdReturn" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="returnDate">Date :</label>
+                        <input class="form-control border-dark" id="returnDate" type="date">
+                    </div>
+                </div>
+            </div>
+            <!-- Return Invoice Details Section End -->
+
+            <!-- Return Item Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center p-2 text-light rounded-3" style="background: #16A085">Item Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="cmbReturnItemCode">Item Code :</label>
+                        <select aria-label="Default select example" class="form-select border-dark" id="cmbReturnItemCode"></select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemReturnSize">Size :</label>
+                        <input class="form-control border-dark" id="itemReturnSize" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemReturnDescription">Description :</label>
+                        <input class="form-control border-dark" disabled id="itemReturnDescription" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="itemPriceReturn">Unit Price :</label>
+                        <input class="form-control border-dark" disabled id="itemPriceReturn" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="qtyOnHandOrder">Qty On Buy :</label>
+                        <input class="form-control border-dark" disabled id="qtyOnReturnOrder" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="buyReturnOrder">Return Qty :</label>
+                        <input class="form-control border-dark" id="buyReturnOrder" type="text">
+                        <strong class="control-error" id="lblCheckReturn"></strong>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6 mt-4 ">
+                        <button class="btn btn-primary rounded-2" id="btnAddToCartReturn" type="button">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Return Item Details Section End -->
+
+            <!-- Return Details Section Start -->
+            <div class="col-10 col-md-5 col-lg-3 p-3 mt-3 rounded-3 sectionBorder" style="background-color: white">
+                <h5 class="text-center bg-secondary p-2 text-light rounded-3">Payment Details</h5>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="returnTotal">Total :</label>
+                        <input class="form-control border-dark" disabled id="returnTotal" type="number">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label class="fw-bold" for="orderCash">Cash :</label>
+                        <input class="form-control border-dark" id="returnCash" type="text">
+                        <strong class="control-error" id="lblCheckSubtotalReturn"></strong>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6 mt-4">
+                        <button class="btn btn-success rounded-2" id="btnReturn" type="button">Return</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Order Details Section End -->
+            <!-- View Cart Details Table Start -->
+            <div class="row mt-1 mt-md-2 mt-lg-3 justify-content-around" style="height: 315px;">
+                <div class="col-11 justify-content-around sectionBorder" style="height: 285px; background: white">
+                    <div class="PlaceOrderTableDiv overflow-auto" style="height: 265px;">
+                        <table class="table table-success table-striped table-bordered table-hover">
+                            <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                            <tr>
+                                <th>Item Code</th>
+                                <th>Description</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Order Quantity</th>
+                                <th>Total</th>
+                                <th>OrderItemCode</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tblReturn"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- View Cart Details Table End -->
+
+        </div>
+        <!-- Order Details Section End -->
+    </div>
+</main>
+<!-- ReturnFrom End-->
+
+
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -1336,6 +1510,7 @@
 <script src="controllers/UserController.js"></script>
 <script src="controllers/OrderController.js"></script>
 <script src="controllers/AdminPanelController.js"></script>
+<script src="controllers/ReturnOrderController.js"></script>
 
 <script>
 
