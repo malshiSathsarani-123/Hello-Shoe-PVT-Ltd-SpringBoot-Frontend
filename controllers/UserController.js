@@ -139,6 +139,7 @@ const loadTable = () => {
     loadItemData()
     loadSupplierId();
     loadItemId();
+    getAlert();
 
     $("#returnTotal").val(0);
     $("#inventoryTotal").val(0);

@@ -228,6 +228,8 @@ $("#btnPurchaseOrder").on("click", () => {
         orderItemDTOS: orderItemDTOS,
     };
 
+    console.log(postData)
+
     $.ajax({
         method:"POST",
         contentType:"application/json",
@@ -243,9 +245,9 @@ $("#btnPurchaseOrder").on("click", () => {
                 'Order has been saved successfully!',
                 'success'
             );
-            loadTable();
             clearItemData();
             clearCustomerData();
+            loadTable()
         },
         error: function() {
             Swal.fire(
@@ -318,6 +320,23 @@ function getOrderDetailArray() {
 }
 
 function getAlert() {
-
+    $.ajax({
+        method: 'GET',
+        url: "http://localhost:8080/shoe/api/v1/inventory/getAll",
+        async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function (inventory) {
+            console.log(inventory)
+            inventory.forEach(function (inventory) {
+                if (inventory.qty <= 50 ){
+                    alert(`${inventory.shoeCode} in ${inventory.size} has qty is ${inventory.qty}`);
+                }
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Failed to fetch item data. Status code:");
+        }
+    });
 }
-
