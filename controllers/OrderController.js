@@ -150,7 +150,7 @@ $("#itemOrderSize").on('input', function(event) {
 $("#orderCash").on('input', function(event) {
     var cash = parseInt($("#orderCash").val());
     var total = parseInt($("#orderSubTotal").val());
-    $("#orderBalance").val(total-cash);
+    $("#orderBalance").val(cash-total);
 });
 /**
  * Load Sub Total
@@ -228,8 +228,6 @@ $("#btnPurchaseOrder").on("click", () => {
         orderItemDTOS: orderItemDTOS,
     };
 
-    console.log(postData)
-
     $.ajax({
         method:"POST",
         contentType:"application/json",
@@ -245,6 +243,7 @@ $("#btnPurchaseOrder").on("click", () => {
                 'Order has been saved successfully!',
                 'success'
             );
+            loadTable();
             clearItemData();
             clearCustomerData();
         },
@@ -316,5 +315,9 @@ function getOrderDetailArray() {
     });
 
     return orderDetailArray;
+}
+
+function getAlert() {
+
 }
 

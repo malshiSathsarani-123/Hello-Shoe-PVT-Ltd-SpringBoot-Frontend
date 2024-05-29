@@ -147,11 +147,8 @@ $("#shoeSize").on('input', function(event) {
 $("#inventoryCash").on('input', function(event) {
     var cash = parseInt($("#inventoryCash").val());
     var total = parseInt($("#inventoryTotal").val());
-    $("#inventoryBalance").val(total-cash);
+    $("#inventoryBalance").val(cash-total);
 });
-
-
-
 
 $("#btnAddToCart").on("click", () => {
 
@@ -225,6 +222,7 @@ var postData = createInventoryDtoList();
                 'success'
             );
             loadSupplierId()
+            loadTable()
             $("#supplierName").val("");
             $("#suppliesDate").val("");
             $("#supplierOrderAddress").val("");

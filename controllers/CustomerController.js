@@ -55,7 +55,6 @@ $("#btnSaveCustomer").click(function () {
     let gender = getSelectedRadioButtonValue();
     let joinDate = $("#JoinDate").val();
     let dob = $("#dob").val();
-    let level = $("#level").val();
     let contact = $("#contact").val();
     let address = $("#address").val();
     let email = $("#email").val();
@@ -71,7 +70,7 @@ $("#btnSaveCustomer").click(function () {
             name:name,
             gender:gender,
             joinDate:joinDate,
-            level:level,
+            level:"NEW",
             totalPoints:0,
             dob:dob,
             address:address,

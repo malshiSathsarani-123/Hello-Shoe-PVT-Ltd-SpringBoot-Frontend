@@ -59,6 +59,16 @@ $("#signingBtn").click(function () {
         success: function (response) {
             token = response.token;
             loadTable()
+
+            $('#signing-section').css('display', 'none');
+            $('#signup-section').css('display', 'none');
+            $('#navigation-section').css('display', 'block');
+            $('#homeSection').css('display', 'block');
+            $('#customerSection').css('display', 'none');
+            $('#supplierSection').css('display', 'none');
+            $('#employeeSection').css('display', 'none');
+            $('#itemSection').css('display', 'none');
+            $('#inventorySection').css('display', 'none');
         },
         error: function (xhr, exception) {
             Swal.fire(
@@ -121,15 +131,6 @@ $("#signupEmployeeCode").on("change", function() {
 
 
 const loadTable = () => {
-    $('#signing-section').css('display', 'none');
-    $('#signup-section').css('display', 'none');
-    $('#navigation-section').css('display', 'block');
-    $('#homeSection').css('display', 'block');
-    $('#customerSection').css('display', 'none');
-    $('#supplierSection').css('display', 'none');
-    $('#employeeSection').css('display', 'none');
-    $('#itemSection').css('display', 'none');
-    $('#inventorySection').css('display', 'none');
 
     loadItemIdOrder()
     loadCustomerId()
@@ -185,8 +186,6 @@ function loadUserName() {
                 if (selectedValue === user.email){
                     userName = user.name;
                     role = user.role;
-                    console.log(userName)
-                    console.log(userName)
                 }
             });
         },
