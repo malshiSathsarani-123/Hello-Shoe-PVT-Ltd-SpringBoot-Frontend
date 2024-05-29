@@ -248,6 +248,7 @@ $("#btnPurchaseOrder").on("click", () => {
             clearItemData();
             clearCustomerData();
             loadTable()
+            getAlert()
         },
         error: function() {
             Swal.fire(

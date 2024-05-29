@@ -59,6 +59,7 @@ $("#signingBtn").click(function () {
         success: function (response) {
             token = response.token;
             loadTable()
+            getAlert();
 
             $('#signing-section').css('display', 'none');
             $('#signup-section').css('display', 'none');
@@ -139,7 +140,7 @@ const loadTable = () => {
     loadItemData()
     loadSupplierId();
     loadItemId();
-    getAlert();
+
 
     $("#returnTotal").val(0);
     $("#inventoryTotal").val(0);
