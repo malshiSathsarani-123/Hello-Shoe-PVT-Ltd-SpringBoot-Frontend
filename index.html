@@ -28,13 +28,20 @@
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                 <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
                     The best offer <br />
-                    <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                    <span style="color: hsl(218, 81%, 75%)">HELLO SHOE</span>
                 </h1>
                 <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                    dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                    ab ipsum nisi dolorem modi. Quos?
+                    Hello Shoe Pvt Ltd is a premier
+                    retail destination for footwear
+                    enthusiasts, offering an extensive
+                    range of shoes that cater to various
+                    tastes and preferences. Our mission
+                    is to provide high-quality, stylish,
+                    and comfortable footwear for men,
+                    women, and children at competitive prices.
+                    Our store boasts a diverse collection of shoes,
+                    including casual wear, formal wear, sports shoes,
+                    sandals, and specialty footwear.
                 </p>
             </div>
 
@@ -83,13 +90,20 @@
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                 <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
                     The best offer <br />
-                    <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                    <span style="color: hsl(218, 81%, 75%)">HELLO SHOE</span>
                 </h1>
                 <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                    dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                    ab ipsum nisi dolorem modi. Quos?
+                    Hello Shoe Pvt Ltd is a premier
+                    retail destination for footwear
+                    enthusiasts, offering an extensive
+                    range of shoes that cater to various
+                    tastes and preferences. Our mission
+                    is to provide high-quality, stylish,
+                    and comfortable footwear for men,
+                    women, and children at competitive prices.
+                    Our store boasts a diverse collection of shoes,
+                    including casual wear, formal wear, sports shoes,
+                    sandals, and specialty footwear.
                 </p>
             </div>
 
@@ -1465,6 +1479,71 @@
 </main>
 <!-- ReturnFrom End-->
 
+<!-- CardFrom Start-->
+<div class="container bg-light d-md-flex align-items-center">
+    <div class="card box2 shadow-sm"  id="cardSection">
+        <div class="d-flex align-items-center justify-content-between p-md-5 p-4">
+            <span class="h5 fw-bold m-0">Payment methods</span>
+        </div>
+        <div class="col-12">
+            <div class="d-flex flex-column px-md-5 px-4 mb-4">
+                <span>Credit Card</span>
+                <div class="inputWithIcon">
+                    <input class="form-control" type="text">
+                    <span class="">LKR</span>
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs mb-3 px-md-4 px-2">
+            <li class="nav-item"> <a class="nav-link px-2 active" aria-current="page" href="#">Credit Card</a> </li>
+        </ul>
+        <form action="">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-column px-md-5 px-4 mb-4">
+                        <span>Credit Card</span>
+                        <div class="inputWithIcon">
+                            <input class="form-control" type="text" placeholder="5136 1845 5468 3894">
+                            <span class=""> <img src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-logo-logok-15.png" alt=""></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4">
+                        <span>Expiration
+                            <span class="ps-1">Date</span>
+                        </span> <div class="inputWithIcon">
+                        <input type="text" class="form-control" placeholder="05/20">
+                        <span class="fas fa-calendar-alt"></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex flex-column pe-md-5 px-md-0 px-4 mb-4">
+                        <span>Code CVV</span>
+                        <div class="inputWithIcon">
+                            <input type="password" class="form-control" placeholder="123">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column px-md-5 px-4 mb-4">
+                        <span>Name</span>
+                        <div class="inputWithIcon">
+                            <input class="form-control text-uppercase" type="text" placeholder="valdimir berezovkiy">
+                            <span class="far fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 px-md-5 px-4 mt-3">
+                    <div class="btn btn-primary w-100" id="payCard">Pay</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- CardFrom End-->
 
 <!--Import js for bootstrap-->
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -1502,6 +1581,7 @@
     $('#inventorySection').css('display', 'none');
     $('#OrderSection').css('display', 'none');
     $('#ReturnSection').css('display', 'none');
+    $('#cardSection').css('display', 'none');
 
     $('#signingBtn1').on('click', () => {
         $('#signing-section').css('display', 'block');
@@ -1512,6 +1592,7 @@
         $('#supplierSection').css('display', 'none');
         $('#employeeSection').css('display', 'none');
         $('#itemSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
@@ -1520,6 +1601,7 @@
 
     $('#signupBtn').on('click', () => {
         $('#signing-section').css('display', 'none');
+        $('#cardSection').css('display', 'none');
         $('#signup-section').css('display', 'block');
         $('#navigation-section').css('display', 'none');
         $('#homeSection').css('display', 'none');
@@ -1544,6 +1626,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#logoutBtn').on('click', () => {
@@ -1558,6 +1641,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#homeBtn').on('click', () => {
@@ -1572,6 +1656,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#customerBtn').on('click', () => {
@@ -1586,6 +1671,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#supplierBtn').on('click', () => {
@@ -1600,6 +1686,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#employeeBtn').on('click', () => {
@@ -1614,6 +1701,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#itemBtn').on('click', () => {
@@ -1628,6 +1716,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
 
     $('#inventoryBtn').on('click', () => {
@@ -1642,6 +1731,7 @@
         $('#inventorySection').css('display', 'block');
         $('#OrderSection').css('display', 'none');
         $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'none');
     })
     $('#orderBtn').on('click', () => {
         $('#signing-section').css('display', 'none');
@@ -1655,6 +1745,7 @@
         $('#inventorySection').css('display', 'none');
         $('#OrderSection').css('display', 'block');
         $('#ReturnSection').css('display', 'block');
+        $('#cardSection').css('display', 'none');
     })
 </script>
 

@@ -15,7 +15,7 @@ $("#btnSaveUser").click(function () {
         employeeCode: $('#signupEmployeeCode').val(),
         name: $('#signupName').val(),
         email: $('#signupEmail').val(),
-        password: $('#signingPassword').val(),
+        password: $('#signupPassword').val(),
         role: $('#signupRole').val()
     };
     $.ajax({
@@ -28,14 +28,21 @@ $("#btnSaveUser").click(function () {
             token = response.token;
             Swal.fire(
                 'Success!',
-                'Item has been saved successfully!',
+                'User has been registered successfully!',
                 'success'
             );
+            loadEmployeeId()
+            $('#signupEmployeeCode').val("")
+            $('#signupName').val("")
+            $('#signupEmail').val("")
+            $('#signupPassword').val("")
+            $('#signupRePassword').val("")
+            $('#signupRole').val("ROLE")
         },
         error: function (xhr, exception) {
             Swal.fire(
                 'Error!',
-                'Item has been saved unsuccessfully!',
+                'User has been registered unsuccessfully!',
                 'error'
             );
         }
@@ -70,6 +77,9 @@ $("#signingBtn").click(function () {
             $('#employeeSection').css('display', 'none');
             $('#itemSection').css('display', 'none');
             $('#inventorySection').css('display', 'none');
+
+            $('#signingEmail').val("")
+            $('#signingPassword').val("")
         },
         error: function (xhr, exception) {
             Swal.fire(

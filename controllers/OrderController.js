@@ -205,6 +205,25 @@ $("#btnAddToCartOrder").on("click", () => {
     }
 });
 /**
+ * Card Payment
+ **/
+$("#paymentMethod").on("change", function() {
+    if ($("#paymentMethod").val() === "CARD"){
+        $('#signing-section').css('display', 'none');
+        $('#signup-section').css('display', 'none');
+        $('#navigation-section').css('display', 'block');
+        $('#homeSection').css('display', 'none');
+        $('#customerSection').css('display', 'none');
+        $('#supplierSection').css('display', 'none');
+        $('#employeeSection').css('display', 'none');
+        $('#itemSection').css('display', 'none');
+        $('#inventorySection').css('display', 'none');
+        $('#OrderSection').css('display', 'none');
+        $('#ReturnSection').css('display', 'none');
+        $('#cardSection').css('display', 'block');
+    }
+});
+/**
  * Place Order
  **/
 $("#btnPurchaseOrder").on("click", () => {
@@ -249,6 +268,70 @@ $("#btnPurchaseOrder").on("click", () => {
             clearCustomerData();
             loadTable()
             getAlert()
+        },
+        error: function() {
+            Swal.fire(
+                'Error!',
+                'Order has been saved unsuccessfully!',
+                'error'
+            );
+        }
+    });
+});
+$("#payCard").on("click", () => {
+    var subTotal = parseInt($("#orderSubTotal").val());
+    var point = subTotal / 800;
+
+    var orderDTO = {
+        customerName :  $("#customerName").val(),
+        amount: subTotal,
+        date:$("#orderDate").val(),
+        payment:$("#paymentMethod").val(),
+        point: point,
+        userName:userName,
+        profit:subTotal - unitPriceAllCost
+    };
+
+    var orderItemDTOS = getOrderDetailArray();
+    var postData = {
+        customerCode:$("#cmbCustomerId").val(),
+        orderDTO: orderDTO,
+        orderItemDTOS: orderItemDTOS,
+    };
+
+    console.log(postData)
+
+    $.ajax({
+        method:"POST",
+        contentType:"application/json",
+        url:"http://localhost:8080/shoe/api/v1/orders",
+        async:true,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        data:JSON.stringify(postData),
+        success: function() {
+            Swal.fire(
+                'Success!',
+                'Order has been saved successfully!',
+                'success'
+            );
+            clearItemData();
+            clearCustomerData();
+            loadTable()
+            getAlert()
+            $('#signing-section').css('display', 'none');
+            $('#signup-section').css('display', 'none');
+            $('#navigation-section').css('display', 'block');
+            $('#homeSection').css('display', 'none');
+            $('#customerSection').css('display', 'none');
+            $('#supplierSection').css('display', 'none');
+            $('#employeeSection').css('display', 'none');
+            $('#itemSection').css('display', 'none');
+            $('#inventorySection').css('display', 'none');
+            $('#OrderSection').css('display', 'block');
+            $('#ReturnSection').css('display', 'block');
+            $('#cardSection').css('display', 'none');
         },
         error: function() {
             Swal.fire(
