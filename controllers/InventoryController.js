@@ -233,11 +233,20 @@ var postData = createInventoryDtoList();
             $("#qtyOnHand").val(0);
         },
         error: function (xhr, exception) {
-            Swal.fire(
-                'Error!',
-                'Item has been saved unsuccessfully!',
-                'error'
-            );
+            if(role === "USER"){
+                console.log(role)
+                Swal.fire(
+                    'Error!',
+                    'Can not do this part for user !',
+                    'error'
+                );
+            }else {
+                Swal.fire(
+                    'Error!',
+                    'Item has been saved unsuccessfully!',
+                    'error'
+                );
+            }
         }
     })
 });

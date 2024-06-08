@@ -91,11 +91,22 @@ $("#btnSaveEmployee").click(function () {
             $("#btnResetEmployee").click();
         },
         error: function (xhr, exception) {
-            Swal.fire(
-                'Error!',
-                'Employee has been saved unsuccessfully!',
-                'error'
-            );
+
+            if(role === "USER"){
+                console.log(role)
+                Swal.fire(
+                    'Error!',
+                    'Can not do this part for user !',
+                    'error'
+                );
+            }else {
+                Swal.fire(
+                    'Error!',
+                    'Employee has been saved unsuccessfully!',
+                    'error'
+                );
+            }
+
         }
     });
 });
@@ -139,11 +150,20 @@ $("#btnUpdateEmployee").click(function () {
             $("#btnResetEmployee").click();
         },
         error: function (xhr, exception) {
-            Swal.fire(
-                'Error!',
-                'Employee has been updated unsuccessfully!',
-                'error'
-            );
+            if(role === "USER"){
+                console.log(role)
+                Swal.fire(
+                    'Error!',
+                    'Can not do this part for user !',
+                    'error'
+                );
+            }else {
+                Swal.fire(
+                    'Error!',
+                    'Employee has been updated unsuccessfully!',
+                    'error'
+                );
+            }
         }
     });
 });
@@ -186,11 +206,20 @@ $("#btnDeleteEmployee").click(function () {
                     $("#btnResetEmployee").click();
                 },
                 error: function (xhr, exception) {
-                    Swal.fire(
-                        'Error!',
-                        'Employee has been saved unsuccessfully!',
-                        'error'
-                    );
+                    if(role === "USER"){
+                        console.log(role)
+                        Swal.fire(
+                            'Error!',
+                            'Can not do this part for user !',
+                            'error'
+                        );
+                    }else {
+                        Swal.fire(
+                            'Error!',
+                            'Employee has been saved unsuccessfully!',
+                            'error'
+                        );
+                    }
                 }
             })
         } else if (
